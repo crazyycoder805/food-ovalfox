@@ -1,6 +1,6 @@
    <?php 
-   $wishlist_items_navbar = [];
-   $cart_items_navbar = [];
+   $wishlist_items_navbar = count([]);
+   $cart_items_navbar = count([]);
 
    if (isset($_SESSION['food_project_username'])) {
     $wishlist_items_navbar = count($pdo->read("wishlist", ['user_id' => $_SESSION['food_project_user_id']]));

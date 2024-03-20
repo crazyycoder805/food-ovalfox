@@ -23,7 +23,7 @@ if (isset($_POST['username'])) {
 
            header("location:menu.php");
         } else {
-            $error = "User does'nt exsit";
+            $error = "User doesn't exsit";
         }
         
     } else {
@@ -68,6 +68,24 @@ if (isset($_POST['username'])) {
     <div class="advance-booking-page wow fadeInUp" data-wow-delay="0.75s">
         <div class="container">
             <div class="row">
+                <div class="col-md">
+                    <?php
+                        if (!empty($success)) {
+                        ?>
+                    <div class="alert alert-success alert-dismissible fade show">
+                        <button type="button" class="close" data-bs-dismiss="alert">&times;</button>
+                        <?php echo $success; ?>
+                    </div>
+                    <?php } else if (!empty($error)) { ?>
+                    <div class="alert alert-danger alert-dismissible fade show">
+                        <button type="button" class="close" data-bs-dismiss="alert">&times;</button>
+                        <?php if(is_string($error)){ echo $error;} else { foreach($error as $err){ echo $err . "<br />";}} ?>
+                    </div>
+
+                    <?php } ?>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-lg-8 offset-lg-2">
                     <!-- Booking Content start -->
 
@@ -99,6 +117,11 @@ if (isset($_POST['username'])) {
                         </form>
                     </div>
                     <!-- Booking Form end -->
+                    <div class="row mt-5">
+                        <div class="col-md text-center">
+                            Don't have a account? <a href="signup.php">Register</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

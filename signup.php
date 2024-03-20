@@ -164,7 +164,13 @@ if (isset($_POST['username'])) {
                             </div>
                         </form>
                     </div>
+
                     <!-- Booking Form end -->
+                    <div class="row mt-5">
+                        <div class="col-md text-center">
+                            Already have a account? <a href="login.php">Sign in</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

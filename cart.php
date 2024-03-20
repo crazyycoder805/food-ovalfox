@@ -48,6 +48,9 @@ if (isset($_SESSION['food_project_username'])) {
     <!-- Gallery Page Start -->
     <div class="gallery-page">
         <div class="container">
+            <?php 
+                if (isset($_SESSION['food_project_username'])) {
+                ?>
             <div class="row">
                 <div class="col-md">
                     <div class="alert alert-info fade show">
@@ -58,9 +61,7 @@ if (isset($_SESSION['food_project_username'])) {
             <div class="row">
 
                 <div class="col-md-12 wow fadeInUp" data-wow-delay="0.50s">
-                    <?php 
-                if (isset($_SESSION['food_project_username'])) {
-                ?>
+
                     <table class="table table-bordered">
                         <thead>
                             <tr>
@@ -89,14 +90,19 @@ if (isset($_SESSION['food_project_username'])) {
                             <?php } ?>
                         </tbody>
                     </table>
-                    <?php } else { ?>
-                    <div class="alert alert-danger alert-dismissible fade show">
-                        <button type="button" class="close" data-bs-dismiss="alert">&times;</button>
-                        Sign in to view cart items.
-                    </div>
-                    <?php } ?>
+
                 </div>
             </div>
+            <?php } else { ?>
+            <div class="row">
+                <div class="col-md">
+                    <div class="alert alert-danger alert-dismissible fade show">
+                        <button type="button" class="close" data-bs-dismiss="alert">&times;</button>
+                        Sign in to view cart items. <a href="login.php">Sign in</a>
+                    </div>
+                </div>
+            </div>
+            <?php } ?>
         </div>
     </div>
     <!-- Gallery Page End -->
