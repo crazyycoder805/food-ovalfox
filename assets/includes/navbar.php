@@ -7,8 +7,9 @@
     $cart_items_navbar = count($pdo->read("cart", ['user_id' => $_SESSION['food_project_user_id']]));
 
    }
+
    ?>
-   
+
    <!-- Header Start -->
    <header class="main-header" id="hero-section">
        <div class="header-sticky">
@@ -42,7 +43,7 @@
                            <li class="nav-item">
                                <a class="nav-link" href="wishlist.php"><i style="font-size: 20px;"
                                        class="fa fa-heart"></i> (<?php echo $wishlist_items_navbar; ?>)</a>
-                               
+
                            </li>
                            <li class="nav-item">
                                <a class="nav-link" href="cart.php"><i style="font-size: 20px;"
@@ -50,6 +51,12 @@
                            </li>
                            <li class="nav-item highlighted-menu"><a class="btn-default" href="booking.php">Book
                                    Now</a></li>
+                           <?php 
+                            if (isset($_SESSION['food_project_user_id'])) {
+                            ?>
+                           <li class="nav-item highlighted-menu"><a style="font-size: 10px;" class="btn-default"
+                                   href="index.php?lg=true">Logout</a></li>
+                           <?php } ?>
                        </ul>
                    </div>
                    <!-- Main Menu End -->

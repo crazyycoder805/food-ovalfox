@@ -48,7 +48,7 @@ function displayStarRating($rating) {
 
 if (isset($_GET['c'])) {
     if (isset($_SESSION['food_project_user_id'])) {
-        if (!$pdo->isDataInserted("cart", ['food_id' => $_GET['c']])) {
+        if (!$pdo->isDataInserted("cart", ['food_id' => $_GET['c'], 'user_id' => $_SESSION['food_project_user_id']])) {
             if ($pdo->create("cart", ['food_id' => $_GET['c'], 'user_id' => $_SESSION['food_project_user_id']])) {
                 $success = "Item carted.";
                 $pdo->headTo("menu.php", 3000);
@@ -64,7 +64,7 @@ if (isset($_GET['c'])) {
     }
 } else if (isset($_GET['w'])) {
     if (isset($_SESSION['food_project_user_id'])) {
-        if (!$pdo->isDataInserted("wishlist", ['food_id' => $_GET['w']])) {
+        if (!$pdo->isDataInserted("wishlist", ['food_id' => $_GET['w'], 'user_id' => $_SESSION['food_project_user_id']])) {
             if ($pdo->create("wishlist", ['food_id' => $_GET['w'], 'user_id' => $_SESSION['food_project_user_id']])) {
                 $success = "Item wishlisted.";
                 $pdo->headTo("menu.php", 3000);

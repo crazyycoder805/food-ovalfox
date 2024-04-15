@@ -3,6 +3,14 @@
 
 <?php require_once 'assets/includes/head.php'; ?>
 
+<?php 
+
+if (isset($_GET['lg'])) {
+    session_unset();
+    session_destroy();
+    header("location:index.php");
+   }
+?>
 <body class="tt-magic-cursor goto-top">
     <?php 
 	require_once 'assets/includes/preloader.php';
