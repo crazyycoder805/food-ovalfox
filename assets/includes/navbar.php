@@ -26,7 +26,6 @@
                        <ul class="navbar-nav mr-auto" id="menu">
                            <li class="nav-item first-menu"><a class="nav-link" href="index.php">Home</a></li>
                            <li class="nav-item"><a class="nav-link" href="about.php">About us</a></li>
-                           <li class="nav-item"><a class="nav-link" href="gallery.php">Gallery</a></li>
                            <li class="nav-item"><a class="nav-link" href="menu.php">Menu</a></li>
                            <li class="nav-item submenu"><a class="nav-link" href="#">Pages</a>
                                <ul>
