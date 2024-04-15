@@ -12,7 +12,6 @@ if(isset($_POST['stripeToken'])){
 		"source"=>$token,
 	));
 
-	echo "<pre>";
-	print_r($data);
+	
 }
 ?>
