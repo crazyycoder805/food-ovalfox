@@ -29,11 +29,7 @@
                            <li class="nav-item"><a class="nav-link" href="menu.php">Menu</a></li>
                            <li class="nav-item submenu"><a class="nav-link" href="#">Pages</a>
                                <ul>
-                                   <li class="nav-item"><a class="nav-link" href="blog.php">Blog</a></li>
-                                   <li class="nav-item"><a class="nav-link" href="blog-single.php">Blog Details</a>
-                                   </li>
-                                   <li class="nav-item"><a class="nav-link" href="faq.php">FAQ</a></li>
-                                   <li class="nav-item"><a class="nav-link" href="404.php">404</a></li>
+                                   
                                    <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
                                    <li class="nav-item"><a class="nav-link" href="signup.php">signup</a></li>
                                </ul>
@@ -48,8 +44,7 @@
                                <a class="nav-link" href="cart.php"><i style="font-size: 20px;"
                                        class="fa fa-cart-plus"></i> (<?php echo $cart_items_navbar; ?>)</a>
                            </li>
-                           <li class="nav-item highlighted-menu"><a class="btn-default" href="booking.php">Book
-                                   Now</a></li>
+                          
                            <?php 
                             if (isset($_SESSION['food_project_user_id'])) {
                             ?>

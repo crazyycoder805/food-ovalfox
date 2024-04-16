@@ -11,12 +11,26 @@ if (isset($_SESSION['food_project_username'])) {
     $cart_items = $pdo->read("cart", ['user_id' => $_SESSION['food_project_user_id']]);
 }
 
+
 if (isset($_GET['dc'])) {
     if ($pdo->delete("cart", $_GET['dc'])) {
         $success = "Cart item deleted, auto refreshing...";
         $pdo->headTo("cart.php", 3500);
     } else {
         $error = "Something went wrong.";
+    }
+}
+
+if (isset($_POST['cuppon_code'])) {
+    if (!empty($_POST['cuppon_code'])) {
+        $cuppon = $pdo->read("cuppon_code", ['cuppon_code' => $_POST['cuppon_code']]);
+        if (!empty($cuppon)) {
+
+        } else {
+            $error = "Cuppon code is invalid.";
+        }
+    } else {
+        $error = "Please enter the cuppon code.";
     }
 }
 ?>
@@ -102,23 +116,24 @@ if (isset($_GET['dc'])) {
                         </thead>
                         <tbody>
                             <?php 
+                            $totalPriceAfterSum = 0;
+                            $totalPrice = [];
                             foreach ($cart_items as $item) {
                                 $food = $pdo->read("food", ['id' => $item['food_id']]);
-                                $totalPrice = [];
+
                                 foreach ($food as $sf) {
                                     $totalPrice[] = $sf['food_price'];
                                 }
-                                $totalPrice = array_sum($totalPrice);
                             ?>
-                            <tr class="text-center">
+                            <tr class="text-center" id="target-table">
                                 <td><?php echo $food[0]['food_name']; ?></td>
                                 <td>£<?php echo $food[0]['food_price']; ?></td>
                                 <td><input id="item_total_input" name="item_total_input"
                                         data-foodprice="<?php echo  $food[0]['food_price']; ?>"
                                         data-i="<?php echo  $food[0]['id']; ?>" class="text-center" value="1"
                                         style="width: 100px;" type="number"></td>
-                                <td>£<span
-                                        id="total-item-price<?php echo $food[0]['id']; ?>"><?php echo $food[0]['food_price']; ?></span>
+                                <td class="target-td">£<span id="total-item-price<?php echo $food[0]['id']; ?>"
+                                        class="itemwise-total"><?php echo $food[0]['food_price']; ?></span>
                                 </td>
 
                                 <td><?php echo $food[0]['created_at']; ?></td>
@@ -126,7 +141,10 @@ if (isset($_GET['dc'])) {
                                             class="fa fa-trash"></i></a></td>
 
                             </tr>
-                            <?php } ?>
+                            <?php } 
+                                                            $totalPriceAfterSum = array_sum($totalPrice);
+
+                            ?>
                         </tbody>
                     </table>
 
@@ -139,7 +157,7 @@ if (isset($_GET['dc'])) {
                         <thead>
                             <tr class="text-center">
                                 <th>Cart Subtotal</th>
-                                <td>£<?php echo $totalPrice; ?></td>
+                                <td>£<span id="sub-total"><?php echo $totalPriceAfterSum; ?></span></td>
 
                             </tr>
                             <tr class="text-center">
@@ -154,7 +172,7 @@ if (isset($_GET['dc'])) {
                             </tr>
                             <tr class="text-center">
                                 <th>Total</th>
-                                <td>£<span id="discounted_total"><?php echo $totalPrice; ?></span></td>
+                                <td>£<span id="discounted_total"><?php echo $totalPriceAfterSum; ?></span></td>
 
                             </tr>
                             <tr class="text-center">
@@ -169,25 +187,33 @@ if (isset($_GET['dc'])) {
                             </tr>
                             <tr class="text-center">
                                 <th>Final amount</th>
-                                <td>£<span class="text-success" id="final_amount"><?php echo ceil(($totalPrice + 3.20 + 2.50) * 100) / 100; ?></span></td>
+                                <td>£<span class="text-success"
+                                        id="final_amount"><?php echo ceil(($totalPriceAfterSum + 3.20 + 2.50) * 100) / 100; ?></span>
+                                </td>
 
                             </tr>
-                            
+
                             <tr class="text-center">
                                 <th>Pay with</th>
                                 <td>
                                     <form action="submit.php" method="post">
-                                        <script id="stripePayment" src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                                            data-key="<?php echo $publishableKey?>" data-amount="<?php echo ceil(($totalPrice + 3.20 + 2.50) * 100); ?>"
-                                            data-name="Sweet Delight"
-                                            data-description="Sweet Delight a best restaurent where you can imagine any taste you want"
-                                            data-image="https://www.logostack.com/wp-content/uploads/designers/eclipse42/small-panda-01-600x420.jpg"
-                                            data-currency="gbp" data-email="<?php echo $_SESSION['food_project_email'] ?>">
-                                        </script>
+                                        <div id="payment-btn-stripe">
+                                            <script id="stripePayment" src="https://checkout.stripe.com/checkout.js"
+                                                class="stripe-button" data-key="<?php echo $publishableKey?>"
+                                                data-amount="<?php echo ceil(($totalPriceAfterSum + 3.20 + 2.50) * 100); ?>"
+                                                data-name="Sweet Delight"
+                                                data-description="Sweet Delight a best restaurent where you can imagine any taste you want"
+                                                data-image="https://www.logostack.com/wp-content/uploads/designers/eclipse42/small-panda-01-600x420.jpg"
+                                                data-currency="gbp"
+                                                data-email="<?php echo $_SESSION['food_project_email'] ?>">
+                                            </script>
+                                            </script>
+
+                                        </div>
 
                                     </form>
-                                    
-                                    
+
+
                                     <button class="btn m-3 btn-primary">Paypal</button>
                                 </td>
 
@@ -214,21 +240,46 @@ if (isset($_GET['dc'])) {
     <?php require_once 'assets/includes/footer.php'; ?>
     <?php require_once 'assets/includes/javascript.php'; ?>
     <script>
-    $(function() {
-        let totalAmount = 0;
-        $(document).on("change", "#item_total_input", e => {
-            let i = $(e.target).data("i");
-            let food_price = $(e.target).data("foodprice");
-            let inputValue = +$(e.target).val();
-            if (inputValue <= 0) {
-                inputValue = 1;
-                $(e.target).val(inputValue);
-            }
+    $(document).on("change", "#item_total_input", e => {
 
-            $(`#total-item-price${i}`).text(inputValue * +food_price);
-            totalAmount += inputValue * +food_price;
-            $("#discounted_total").text(totalAmount);
-        });
+        let totalAmount = 0;
+        let finalAmount = 0;
+        let disCountedTotal = 0;
+
+        let i = $(e.target).data("i");
+        let food_price = $(e.target).data("foodprice");
+        let inputValue = +$(e.target).val();
+        if (inputValue <= 0) {
+            inputValue = 1;
+            $(e.target).val(inputValue);
+        }
+        totalAmount = +inputValue * +food_price;
+
+
+        $(`#total-item-price${i}`).text(totalAmount);
+
+
+        let arrTotal = [];
+        $(".target-td").find(".itemwise-total").each((inx, ele) =>
+            arrTotal.push(+$(ele).text()));
+        let sum = arrTotal.reduce(function(accumulator, currentValue) {
+            return accumulator + currentValue;
+        }, 0);
+        console.log(sum);
+        $("#sub-total").text(sum);
+
+        disCountedTotal = +inputValue * +food_price;
+
+        finalAmount = (Math.ceil((sum + 3.20 +
+            2.50) * 100) / 100);
+        $("#discounted_total").text(sum);
+
+        $("#final_amount").text(finalAmount);
+        $("#stripePayment").data("amount", finalAmount);
+
+        $("#payment-btn-stripe").html(
+            `<script id="stripePayment" src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="<?php echo $publishableKey; ?>" data-amount="${finalAmount * 100}" data-name="Sweet Delight" data-description="Sweet Delight a best restaurent where you can imagine any taste you want" data-image="https://www.logostack.com/wp-content/uploads/designers/eclipse42/small-panda-01-600x420.jpg" data-currency="gbp" data-email="<?php echo $_SESSION['food_project_email']; ?>">`
+        );
     });
     </script>
 </body>

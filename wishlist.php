@@ -68,6 +68,8 @@ if (isset($_SESSION['food_project_username'])) {
                                 <th>Product name</th>
                                 <th>Unit price</th>
                                 <th>Date addded</th>
+                                <th>Action</th>
+
                             </tr>
                         </thead>
                         <tbody>
@@ -80,6 +82,8 @@ if (isset($_SESSION['food_project_username'])) {
                                 <td><?php echo $food[0]['food_name']; ?></td>
                                 <td><?php echo $food[0]['food_price']; ?></td>
                                 <td><?php echo $item['createdAt']; ?></td>
+                                <td><a href="cart.php"><i class="fa fa-cart-plus"></i></a></td>
+
                             </tr>
                             <?php } ?>
                         </tbody>
