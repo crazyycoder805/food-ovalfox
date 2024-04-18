@@ -23,9 +23,22 @@ if (isset($_GET['dc'])) {
 
 if (isset($_POST['cuppon_code'])) {
     if (!empty($_POST['cuppon_code'])) {
-        $cuppon = $pdo->read("cuppon_code", ['cuppon_code' => $_POST['cuppon_code']]);
+        $cuppon = $pdo->read("cuppons", ['cuppon_code' => $_POST['cuppon_code']]);
         if (!empty($cuppon)) {
+            if ($cuppon[0]['limit_used'] <= $cuppon[0]['cuppon_limit']) {
+                if ($pdo->update("cuppons", ['id' => $cuppon[0]['id']], ['limit_used' => $cuppon[0]['limit_used'] + 1])) {
+                    $success = "Cuppon code applied. got {$cuppon[0]['discount']}% discount, limit {$cuppon[0]['limit_used']} out of {$cuppon[0]['cuppon_limit']} used, auto refreshing...";
+                    $_SESSION['food_project_cuppon_discount'] = $cuppon[0]['discount'];
+                    $pdo->headTo("cart.php", 6000);
+    
+                } else {
+                    $error = "Something went wrong.";
 
+                }
+            } else {
+                $error = "Cuppon limit is already used.";
+            }
+            
         } else {
             $error = "Cuppon code is invalid.";
         }
@@ -162,7 +175,8 @@ if (isset($_POST['cuppon_code'])) {
                             </tr>
                             <tr class="text-center">
                                 <th>Discount</th>
-                                <td>£<span id="discount">0</span>
+                                <td>£<span
+                                        id="discount"><?php echo isset($_SESSION['food_project_cuppon_discount']) && !empty($_SESSION['food_project_cuppon_discount']) ? $_SESSION['food_project_cuppon_discount'] : 0 ?></span>
                                     <form method="post"><input name="cuppon_code" id="cuppon_code"
                                             placeholder="Enter Cuppon Code" type="text" /><button type="submit"
                                             style="border-radius: 0px;" class="btn btn-sm btn-danger">Apply
@@ -181,14 +195,14 @@ if (isset($_POST['cuppon_code'])) {
 
                             </tr>
                             <tr class="text-center">
-                                <th>Vat</th>
+                                <th>Delivery charges</th>
                                 <td>£<span>2.50</span></td>
 
                             </tr>
                             <tr class="text-center">
                                 <th>Final amount</th>
                                 <td>£<span class="text-success"
-                                        id="final_amount"><?php echo ceil(($totalPriceAfterSum + 3.20 + 2.50) * 100) / 100; ?></span>
+                                        id="final_amount"><?php echo isset($_SESSION['food_project_cuppon_discount']) && !empty($_SESSION['food_project_cuppon_discount']) ? (ceil(($totalPriceAfterSum + 3.20 + 2.50) * 100) / 100) - $_SESSION['food_project_cuppon_discount'] :ceil(($totalPriceAfterSum + 3.20 + 2.50) * 100) / 100; ?></span>
                                 </td>
 
                             </tr>
@@ -211,10 +225,11 @@ if (isset($_POST['cuppon_code'])) {
 
                                         </div>
 
+                                        <input type="text" hidden name="stripe_payment_amount_input" id="stripe_payment_amount_input" value="<?php echo ceil(($totalPriceAfterSum + 3.20 + 2.50) * 100); ?>">
+
                                     </form>
 
 
-                                    <button class="btn m-3 btn-primary">Paypal</button>
                                 </td>
 
                             </tr>
@@ -265,18 +280,24 @@ if (isset($_POST['cuppon_code'])) {
         let sum = arrTotal.reduce(function(accumulator, currentValue) {
             return accumulator + currentValue;
         }, 0);
-        console.log(sum);
         $("#sub-total").text(sum);
 
         disCountedTotal = +inputValue * +food_price;
-
         finalAmount = (Math.ceil((sum + 3.20 +
             2.50) * 100) / 100);
         $("#discounted_total").text(sum);
 
+        <?php 
+        if (isset($_SESSION['food_project_cuppon_discount']) && !empty($_SESSION['food_project_cuppon_discount'])) { ?>
+        $("#final_amount").text(finalAmount - <?php echo $_SESSION['food_project_cuppon_discount']; ?>);
+        <?php } else { ?>
         $("#final_amount").text(finalAmount);
-        $("#stripePayment").data("amount", finalAmount);
 
+        <?php } ?>
+
+
+        $("#stripePayment").data("amount", finalAmount);
+        $("#stripe_payment_amount_input").val(finalAmount);
         $("#payment-btn-stripe").html(
             `<script id="stripePayment" src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="<?php echo $publishableKey; ?>" data-amount="${finalAmount * 100}" data-name="Sweet Delight" data-description="Sweet Delight a best restaurent where you can imagine any taste you want" data-image="https://www.logostack.com/wp-content/uploads/designers/eclipse42/small-panda-01-600x420.jpg" data-currency="gbp" data-email="<?php echo $_SESSION['food_project_email']; ?>">`
         );
