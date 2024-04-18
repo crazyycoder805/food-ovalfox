@@ -161,8 +161,16 @@ if (isset($_POST['cuppon_code'])) {
                         </tbody>
                     </table>
 
+                    <?php 
+                    foreach ($cart_items as $key => $value) {
+                    }
+                    ?>
+                    <?php } ?>
                 </div>
             </div>
+            <?php 
+                if (isset($_SESSION['food_project_username'])) {
+                ?>
             <div class="row mt-4 justify-content-end">
                 <div class="col-md-6">
                     <h3>Car Totals</h3>
@@ -211,7 +219,13 @@ if (isset($_POST['cuppon_code'])) {
                                 <th>Pay with</th>
                                 <td>
                                     <form action="submit.php" method="post">
-                                        <div id="payment-btn-stripe">
+                                        <select class="form-control" name="pay_with" id="pay_with">
+                                            <option value="cod">Cash on delivery</option>
+                                            <option value="stripe">Stripe</option>
+
+                                        </select>
+                                        <br />
+                                        <div id="payment-btn-stripe" hidden>
                                             <script id="stripePayment" src="https://checkout.stripe.com/checkout.js"
                                                 class="stripe-button" data-key="<?php echo $publishableKey?>"
                                                 data-amount="<?php echo ceil(($totalPriceAfterSum + 3.20 + 2.50) * 100); ?>"
@@ -224,8 +238,16 @@ if (isset($_POST['cuppon_code'])) {
                                             </script>
 
                                         </div>
+                                        <div id="cod">
+                                            1
+                                        </div>
 
-                                        <input type="text" hidden name="stripe_payment_amount_input" id="stripe_payment_amount_input" value="<?php echo ceil(($totalPriceAfterSum + 3.20 + 2.50) * 100); ?>">
+                                        <input type="text" hidden name="stripe_payment_amount_input"
+                                            id="stripe_payment_amount_input"
+                                            value="<?php echo ceil(($totalPriceAfterSum + 3.20 + 2.50) * 100); ?>">
+                                        <input type="text" hidden name="stripe_payment_amount_input"
+                                            id="stripe_payment_amount_input"
+                                            value="<?php echo ceil(($totalPriceAfterSum + 3.20 + 2.50) * 100); ?>">
 
                                     </form>
 
@@ -302,6 +324,18 @@ if (isset($_POST['cuppon_code'])) {
             `<script id="stripePayment" src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="<?php echo $publishableKey; ?>" data-amount="${finalAmount * 100}" data-name="Sweet Delight" data-description="Sweet Delight a best restaurent where you can imagine any taste you want" data-image="https://www.logostack.com/wp-content/uploads/designers/eclipse42/small-panda-01-600x420.jpg" data-currency="gbp" data-email="<?php echo $_SESSION['food_project_email']; ?>">`
         );
     });
+
+
+    $("#pay_with").on("change", e=> {
+        if (e.target.value == "cod") {
+            $("#payment-btn-stripe").prop("hidden", true);
+            $("#cod").prop("hidden", false);
+        } else if (e.target.value == "stripe") {
+            $("#payment-btn-stripe").prop("hidden", false);
+            $("#cod").prop("hidden", true);
+            
+        }
+    })
     </script>
 </body>
 

@@ -82,7 +82,7 @@ if (isset($_SESSION['food_project_username'])) {
                                 <td><?php echo $food[0]['food_name']; ?></td>
                                 <td><?php echo $food[0]['food_price']; ?></td>
                                 <td><?php echo $item['createdAt']; ?></td>
-                                <td><a href="cart.php"><i class="fa fa-cart-plus"></i></a></td>
+                                <td><a href="menu.php?c=<?php echo $food[0]['id']; ?>">Add to cart</a></td>
 
                             </tr>
                             <?php } ?>

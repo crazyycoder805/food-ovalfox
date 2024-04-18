@@ -46,7 +46,7 @@
                            </li>
                           
                            <?php 
-                            if (isset($_SESSION['food_project_user_id'])) {
+                            if (isset($_SESSION['food_project_user_id']) || isset($_SESSION['food_project_admin_id'])) {
                             ?>
                            <li class="nav-item highlighted-menu"><a style="font-size: 10px;" class="btn-default"
                                    href="index.php?lg=true">Logout</a></li>

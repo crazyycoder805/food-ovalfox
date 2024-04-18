@@ -10,7 +10,7 @@ if (!isset($_GET['i'])) {
 }
 $food = $pdo->read("food", ['id'=> $_GET['i']]);
 $food_categories = $pdo->read("food_categories", ['id' => $food[0]['food_category_id']]);
-$food_tags = $pdo->read("tags", ['id' => $food[0]['tag']]);
+$food_tags = [["tag" => "no tag yet."]];
 $foods = $pdo->customQuery("SELECT * FROM food LIMIT 0, 3");
 
 
