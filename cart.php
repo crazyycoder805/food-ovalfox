@@ -67,7 +67,7 @@ if (isset($_POST['cuppon_code'])) {
                         <h1 class="text-anime">Gallery</h1>
                         <nav>
                             <ol class="breadcrumb wow fadeInUp" data-wow-delay="0.50s">
-                                <li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
+                                <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                                 <li class="breadcrumb-item active">Gallery</li>
                             </ol>
                         </nav>
@@ -139,14 +139,14 @@ if (isset($_POST['cuppon_code'])) {
                                 }
                             ?>
                             <tr class="text-center" id="target-table">
-                                <td><?php echo $food[0]['food_name']; ?></td>
-                                <td>£<?php echo $food[0]['food_price']; ?></td>
+                                <td class="fn"><?php echo $food[0]['food_name']; ?></td>
+                                <td>£<span class="fp"><?php echo $food[0]['food_price']; ?></span></td>
                                 <td><input id="item_total_input" name="item_total_input"
                                         data-foodprice="<?php echo  $food[0]['food_price']; ?>"
-                                        data-i="<?php echo  $food[0]['id']; ?>" class="text-center" value="1"
+                                        data-i="<?php echo  $food[0]['id']; ?>" class="text-center ftq" value="1"
                                         style="width: 100px;" type="number"></td>
                                 <td class="target-td">£<span id="total-item-price<?php echo $food[0]['id']; ?>"
-                                        class="itemwise-total"><?php echo $food[0]['food_price']; ?></span>
+                                        class="itemwise-total ftp"><?php echo $food[0]['food_price']; ?></span>
                                 </td>
 
                                 <td><?php echo $food[0]['created_at']; ?></td>
@@ -161,10 +161,6 @@ if (isset($_POST['cuppon_code'])) {
                         </tbody>
                     </table>
 
-                    <?php 
-                    foreach ($cart_items as $key => $value) {
-                    }
-                    ?>
                     <?php } ?>
                 </div>
             </div>
@@ -218,14 +214,16 @@ if (isset($_POST['cuppon_code'])) {
                             <tr class="text-center">
                                 <th>Pay with</th>
                                 <td>
-                                    <form action="submit.php" method="post">
-                                        <select class="form-control" name="pay_with" id="pay_with">
-                                            <option value="cod">Cash on delivery</option>
-                                            <option value="stripe">Stripe</option>
 
-                                        </select>
-                                        <br />
-                                        <div id="payment-btn-stripe" hidden>
+                                    <select class="form-control" name="pay_with_dd" id="pay_with_dd">
+                                        <option value="cod">Cash on delivery</option>
+                                        <option value="stripe">Stripe</option>
+
+                                    </select>
+                                    <br />
+                                    <div id="payment-btn-stripe" hidden>
+                                        <form action="submit.php" method="post">
+
                                             <script id="stripePayment" src="https://checkout.stripe.com/checkout.js"
                                                 class="stripe-button" data-key="<?php echo $publishableKey?>"
                                                 data-amount="<?php echo ceil(($totalPriceAfterSum + 3.20 + 2.50) * 100); ?>"
@@ -236,20 +234,59 @@ if (isset($_POST['cuppon_code'])) {
                                                 data-email="<?php echo $_SESSION['food_project_email'] ?>">
                                             </script>
                                             </script>
+                                            <input hidden type="text" name="pay_with" value="stripe" class="pay_with" />
+                                            <input hidden type="text"
+                                                value="<?php echo ceil(($totalPriceAfterSum + 3.20 + 2.50) * 100); ?>"
+                                                name="total_final_amount" class="total_final_amount">
 
-                                        </div>
-                                        <div id="cod">
-                                            1
-                                        </div>
+                                            <input hidden type="text"
+                                                value="<?php echo ceil(($totalPriceAfterSum + 3.20 + 2.50) * 100) - isset($_SESSION['food_project_cuppon_discount']) && !empty($_SESSION['food_project_cuppon_discount']) ? - $_SESSION['food_project_cuppon_discount'] : 0; ?>"
+                                                name="discounted_amount_input" class="discounted_amount_input">
+                                            <input hidden name="sub-total-input" class="sub-total-input" type="text"
+                                                value="<?php  echo $totalPriceAfterSum; ?>">
 
-                                        <input type="text" hidden name="stripe_payment_amount_input"
-                                            id="stripe_payment_amount_input"
-                                            value="<?php echo ceil(($totalPriceAfterSum + 3.20 + 2.50) * 100); ?>">
-                                        <input type="text" hidden name="stripe_payment_amount_input"
-                                            id="stripe_payment_amount_input"
-                                            value="<?php echo ceil(($totalPriceAfterSum + 3.20 + 2.50) * 100); ?>">
+                                            <div hidden class="all-inputs"></div>
 
-                                    </form>
+                                        </form>
+
+                                    </div>
+
+                                    <div id="cod">
+                                        <form action="submit.php" method="post">
+
+                                            <button type="submit" class="btn btn-primary btn-sm">Pay</button>
+                                            <input hidden type="text"
+                                                value="<?php echo ceil(($totalPriceAfterSum + 3.20 + 2.50) * 100); ?>"
+                                                name="total_final_amount" class="total_final_amount">
+                                            <input hidden type="text" name="pay_with" value="cod" class="pay_with" />
+                                            <input hidden type="text"
+                                                value="<?php echo ceil(($totalPriceAfterSum + 3.20 + 2.50) * 100) - isset($_SESSION['food_project_cuppon_discount']) && !empty($_SESSION['food_project_cuppon_discount']) ? - $_SESSION['food_project_cuppon_discount'] : 0; ?>"
+                                                name="discounted_amount_input" class="discounted_amount_input">
+                                            <input hidden name="sub-total-input" class="sub-total-input" type="text"
+                                                value="<?php  echo $totalPriceAfterSum; ?>">
+                                            <div hidden class="all-inputs"></div>
+
+                                        </form>
+
+                                    </div>
+
+                                    <?php 
+              
+                    foreach ($cart_items as $item) {
+                        $food = $pdo->read("food", ['id' => $item['food_id']]);
+
+                        foreach ($food as $sf) {
+                            $totalPrice[] = $sf['food_price'];
+                        }
+                    
+                    ?>
+
+
+
+                                    <?php } ?>
+
+
+
 
 
                                 </td>
@@ -277,11 +314,35 @@ if (isset($_POST['cuppon_code'])) {
     <?php require_once 'assets/includes/footer.php'; ?>
     <?php require_once 'assets/includes/javascript.php'; ?>
     <script>
+    let foods = [];
+
+    $(".fn").each((i, ele) => {
+        let food = {
+            food_name: ele.textContent,
+            food_price: $(".fp")[i].textContent,
+            food_total_quantity: $(".ftq")[i].value,
+            food_total_price: $(".ftp")[i].textContent
+        };
+        foods.push(food);
+    });
+
+
+    $('.all-inputs').each((i, ele) => {
+        foods.forEach((food, index) => {
+            index += 1;
+
+            $(ele).append(`
+            <input type="text" id="food_name_${index}" name="food_name_${index}" value="${food.food_name}">
+            <input type="text" id="food_price_${index}" name="food_price_${index}" value="${food.food_price}">
+            <input type="text" id="food_total_quantity_${index}" name="food_total_quantity_${index}" value="${food.food_total_quantity}">
+            <input type="text" id="food_total_price_${index}" name="food_total_price_${index}" value="${food.food_total_price}">
+        `);
+        });
+    });
     $(document).on("change", "#item_total_input", e => {
 
         let totalAmount = 0;
         let finalAmount = 0;
-        let disCountedTotal = 0;
 
         let i = $(e.target).data("i");
         let food_price = $(e.target).data("foodprice");
@@ -303,37 +364,69 @@ if (isset($_POST['cuppon_code'])) {
             return accumulator + currentValue;
         }, 0);
         $("#sub-total").text(sum);
+        $(".sub-total-input").val(sum);
 
-        disCountedTotal = +inputValue * +food_price;
         finalAmount = (Math.ceil((sum + 3.20 +
             2.50) * 100) / 100);
-        $("#discounted_total").text(sum);
 
         <?php 
         if (isset($_SESSION['food_project_cuppon_discount']) && !empty($_SESSION['food_project_cuppon_discount'])) { ?>
-        $("#final_amount").text(finalAmount - <?php echo $_SESSION['food_project_cuppon_discount']; ?>);
-        <?php } else { ?>
-        $("#final_amount").text(finalAmount);
-
+        finalAmount -= <?php echo $_SESSION['food_project_cuppon_discount']; ?>;
         <?php } ?>
+        $("#discounted_total").text(sum - +
+            <?php echo !empty($_SESSION['food_project_cuppon_discount']) && isset($_SESSION['food_project_cuppon_discount']) ? $_SESSION['food_project_cuppon_discount'] : 0; ?>
+        );
+        $(".discounted_amount_input").val(sum - +
+            <?php echo !empty($_SESSION['food_project_cuppon_discount']) && isset($_SESSION['food_project_cuppon_discount']) ? $_SESSION['food_project_cuppon_discount'] : 0; ?>
+        );
 
+        $("#final_amount").text(finalAmount);
+        $(".total_final_amount").each((i, el) => {
+            $(el).val(finalAmount);
+        });
 
         $("#stripePayment").data("amount", finalAmount);
         $("#stripe_payment_amount_input").val(finalAmount);
         $("#payment-btn-stripe").html(
             `<script id="stripePayment" src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="<?php echo $publishableKey; ?>" data-amount="${finalAmount * 100}" data-name="Sweet Delight" data-description="Sweet Delight a best restaurent where you can imagine any taste you want" data-image="https://www.logostack.com/wp-content/uploads/designers/eclipse42/small-panda-01-600x420.jpg" data-currency="gbp" data-email="<?php echo $_SESSION['food_project_email']; ?>">`
         );
+        foods = [];
+
+        $(".fn").each((i, ele) => {
+            let food = {
+                food_name: ele.textContent,
+                food_price: $(".fp")[i].textContent,
+                food_total_quantity: $(".ftq")[i].value,
+                food_total_price: $(".ftp")[i].textContent
+            };
+            foods.push(food);
+        });
+
+
+        $('.all-inputs').each((i, ele) => {
+            foods.forEach((food, index) => {
+                index += 1;
+
+                $(ele).append(`
+            <input type="text" id="food_name_${index}" name="food_name_${index}" value="${food.food_name}">
+            <input type="text" id="food_price_${index}" name="food_price_${index}" value="${food.food_price}">
+            <input type="text" id="food_total_quantity_${index}" name="food_total_quantity_${index}" value="${food.food_total_quantity}">
+            <input type="text" id="food_total_price_${index}" name="food_total_price_${index}" value="${food.food_total_price}">
+        `);
+            });
+        });
     });
 
 
-    $("#pay_with").on("change", e=> {
+    $("#pay_with_dd").on("change", e => {
         if (e.target.value == "cod") {
             $("#payment-btn-stripe").prop("hidden", true);
             $("#cod").prop("hidden", false);
+
         } else if (e.target.value == "stripe") {
             $("#payment-btn-stripe").prop("hidden", false);
             $("#cod").prop("hidden", true);
-            
+
         }
     })
     </script>

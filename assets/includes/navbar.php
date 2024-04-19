@@ -16,8 +16,8 @@
            <nav class="navbar navbar-expand-lg">
                <div class="container">
                    <!-- Logo Start -->
-                   <a class="navbar-brand" href="index-2.php">
-                       <img src="assets/images/logo.svg" alt="Logo">
+                   <a class="navbar-brand" href="index.php">
+                       Sweetness Delight
                    </a>
                    <!-- Logo End -->
 
@@ -27,9 +27,9 @@
                            <li class="nav-item first-menu"><a class="nav-link" href="index.php">Home</a></li>
                            <li class="nav-item"><a class="nav-link" href="about.php">About us</a></li>
                            <li class="nav-item"><a class="nav-link" href="menu.php">Menu</a></li>
-                           <li class="nav-item submenu"><a class="nav-link" href="#">Pages</a>
+                           <li class="nav-item submenu"><a class="nav-link" href="#">Access</a>
                                <ul>
-                                   
+
                                    <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
                                    <li class="nav-item"><a class="nav-link" href="signup.php">signup</a></li>
                                </ul>
@@ -44,12 +44,19 @@
                                <a class="nav-link" href="cart.php"><i style="font-size: 20px;"
                                        class="fa fa-cart-plus"></i> (<?php echo $cart_items_navbar; ?>)</a>
                            </li>
-                          
+
                            <?php 
                             if (isset($_SESSION['food_project_user_id']) || isset($_SESSION['food_project_admin_id'])) {
                             ?>
                            <li class="nav-item highlighted-menu"><a style="font-size: 10px;" class="btn-default"
                                    href="index.php?lg=true">Logout</a></li>
+                           <?php } ?>
+
+                           <?php 
+                            if (isset($_SESSION['food_project_user_id']) || isset($_SESSION['food_project_admin_id'])) {
+                            ?>
+                           <li class="nav-item highlighted-menu"><a style="font-size: 10px;" class="btn-default"
+                                   href="userpanel.php">Panel</a></li>
                            <?php } ?>
                        </ul>
                    </div>

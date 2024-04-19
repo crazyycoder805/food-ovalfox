@@ -11,6 +11,7 @@ if (isset($_GET['lg'])) {
     header("location:index.php");
    }
 ?>
+
 <body class="tt-magic-cursor goto-top">
     <?php 
 	require_once 'assets/includes/preloader.php';
@@ -26,22 +27,25 @@ if (isset($_GET['lg'])) {
                 <div class="col-md-12">
                     <!-- Section Title start -->
                     <div class="section-title">
-                        <h3 class="wow fadeInUp" data-wow-delay="0.50s">Welcome to Fwizz</h3>
+                        <h3 class="wow fadeInUp" data-wow-delay="0.50s">Welcome to Sweetness Delight</h3>
                         <h1 class="text-anime">Taste Flavours from Around the World</h1>
                     </div>
                     <!-- Section Title end -->
 
                     <!-- Hero Content start -->
                     <div class="hero-content wow fadeInUp" data-wow-delay="0.75s">
-                        <p>Duis nec semper ligula. Nullam nec justo vel metus gravida consequat. Suspendisse potenti.
-                            Quisque fermentum, nisl vitae auctor commodo, justo metus tincidunt elit.</p>
+                        <p>Indulge your senses with our exquisite menu crafted with passion and care by our team of
+                            talented chefs. Start your culinary adventure with a selection of artisanal appetizers,
+                            bursting with vibrant colors and bold flavors. From delicate bruschetta topped with ripe
+                            tomatoes and basil to crispy calamari served with zesty aioli, each dish is a masterpiece in
+                            its own right.</p>
                     </div>
                     <!-- Hero Content end -->
 
                     <!-- Hero Footer start -->
                     <div class="hero-footer">
-                        <a href="#" class="btn-default btn-book-now wow fadeInUp" data-wow-delay="1s">Book Now</a>
-                        <a href="#" class="btn-default btn-order-online wow fadeInUp" data-wow-delay="1.25s">Order
+                        <a href="menu.php" class="btn-default btn-order-online wow fadeInUp"
+                            data-wow-delay="1.25s">Order
                             Online</a>
                     </div>
                     <!-- Hero Footer end -->
@@ -90,8 +94,11 @@ if (isset($_GET['lg'])) {
                         <!-- Section Ttile Start -->
 
                         <div class="home-about-content wow fadeInUp" data-wow-delay="0.75s">
-                            <p>Duis nec semper ligula. Nullam nec justo vel metus gravida consequat. Suspendisse
-                                potenti. Quisque fermentum, nisl vitae auctor commodo, justo metus tincidunt elit,</p>
+                            <p>For the main course, prepare to be delighted by a symphony of tastes from around the
+                                world. Sink your teeth into tender cuts of prime steak, perfectly grilled to your
+                                preference, or savor the delicate flavors of freshly caught seafood, sourced from local
+                                waters. Vegetarian options abound, showcasing the freshest seasonal produce and
+                                innovative cooking techniques.</p>
                         </div>
 
                         <div class="about-icon-box">
@@ -101,7 +108,8 @@ if (isset($_GET['lg'])) {
                                 </div>
                                 <div class="icon-box-content">
                                     <h3>Online Order</h3>
-                                    <p>Duis nec semper ligula. Nullam nec.</p>
+                                    <p>Pair your meal with a selection from our extensive wine list, featuring a curated
+                                        collection of fine wines from renowned vineyards around the globe.</p>
                                 </div>
                             </div>
 
@@ -111,7 +119,8 @@ if (isset($_GET['lg'])) {
                                 </div>
                                 <div class="icon-box-content">
                                     <h3>24X7 Services</h3>
-                                    <p>Duis nec semper ligula. Nullam nec.</p>
+                                    <p>Pair your meal with a selection from our extensive wine list, featuring a curated
+                                        collection of fine wines from renowned vineyards around the globe.</p>
                                 </div>
                             </div>
                         </div>
@@ -154,8 +163,10 @@ if (isset($_GET['lg'])) {
                         <!-- Image Box Body start -->
                         <div class="image-body">
                             <h3>Quality Foods</h3>
-                            <p>Sit amet, consectetur adipiscing elit quisque eget maximus velit, non eleifend libero
-                                curabitur dapibus mauris.</p>
+                            <p>At Sweet Delightness, hospitality is our passion, and every guest is treated like family.
+                                Whether you're celebrating a special occasion or simply enjoying a leisurely meal with
+                                loved ones, our attentive staff is dedicated to ensuring your experience is nothing
+                                short of extraordinary.</p>
                         </div>
                         <!-- Image Box Body end -->
                     </div>
@@ -176,8 +187,9 @@ if (isset($_GET['lg'])) {
                         <!-- Image Box Body start -->
                         <div class="image-body">
                             <h3>Fastest Delivery</h3>
-                            <p>Sit amet, consectetur adipiscing elit quisque eget maximus velit, non eleifend libero
-                                curabitur dapibus mauris.</p>
+                            <p>Escape the ordinary and treat yourself to a culinary journey like no other at Sweetness
+                                Delight,
+                                where every moment is infused with sweetness and delight.</p>
                         </div>
                         <!-- Image Box Body end -->
                     </div>
@@ -198,8 +210,10 @@ if (isset($_GET['lg'])) {
                         <!-- Image Box Body start -->
                         <div class="image-body">
                             <h3>Original Recipes</h3>
-                            <p>Sit amet, consectetur adipiscing elit quisque eget maximus velit, non eleifend libero
-                                curabitur dapibus mauris.</p>
+                            <p>Pair your meal with a selection from our extensive wine list, featuring a curated
+                                collection of fine wines from renowned vineyards around the globe. Or, indulge in one of
+                                our handcrafted cocktails, expertly mixed by our skilled bartenders using only the
+                                finest spirits and freshest ingredients.</p>
                         </div>
                         <!-- Image Box Body end -->
                     </div>
@@ -212,337 +226,11 @@ if (isset($_GET['lg'])) {
     <!-- Why Choose Us End -->
 
     <!-- Most Popular Dises Start -->
-    <div class="most-popular-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <!-- Section Title start -->
-                    <div class="section-title">
-                        <h3 class="wow fadeInUp" data-wow-delay="0.50s">Hot Dises</h3>
-                        <h2 class="text-anime">Most Popular Dises</h2>
-                    </div>
-                    <!-- Section Title end -->
-                </div>
-            </div>
 
-            <div class="row">
-                <!-- Menu Dises Section Start -->
-
-                <div class="col-lg-3 col-md-12">
-                    <!-- Sidebar Menu Dises Nav start -->
-                    <div class="menu-dises-nav wow fadeInLeft" data-wow-delay="0.75s">
-                        <ul>
-                            <li><a href="#" class="active-menu-dises" data-filter="*"><img
-                                        src="assets/images/icon-breakfast.svg" alt="">All Popular Dises</a></li>
-                            <li><a href="#" data-filter=".breakfast"><img src="assets/images/icon-breakfast.svg"
-                                        alt="">Breakfast</a></li>
-                            <li><a href="#" data-filter=".lunches"><img src="assets/images/icon-lunches.svg"
-                                        alt="">Lunches</a>
-                            </li>
-                            <li><a href="#" data-filter=".dinner"><img src="assets/images/icon-dinner.svg"
-                                        alt="">Dinner</a>
-                            </li>
-                            <li><a href="#" data-filter=".drinks"><img src="assets/images/icon-drinks.svg"
-                                        alt="">Drinks</a>
-                            </li>
-                            <li><a href="#" data-filter=".fast-foods"><img src="assets/images/icon-fast-foods.svg"
-                                        alt="">Fast
-                                    Foods</a></li>
-                            <li><a href="#" data-filter=".dessert"><img src="assets/images/icon-dessert.svg"
-                                        alt="">Dessert</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- Sidebar Menu Dises Nav end -->
-                </div>
-
-
-                <div class="col-lg-9 col-md-12">
-                    <!-- Menu Item Box start -->
-                    <div class="row menu-item-boxes wow fadeInUp" data-wow-delay="1.00s">
-                        <!-- Menu Item start -->
-                        <div class="col-lg-4 col-md-6 menu-item-box lunches dinner fast-foods">
-                            <div class="menu-item">
-                                <!-- Menu Item Image start -->
-                                <div class="menu-item-img">
-                                    <figure class="image-anime">
-                                        <img src="assets/images/menu-1.jpg" alt="">
-                                    </figure>
-                                </div>
-                                <!-- Menu Item Image start -->
-
-                                <!-- Menu Item Body start -->
-                                <div class="menu-item-body">
-                                    <div class="rating-img">
-                                        <img src="assets/images/start-rating.png" alt="">
-                                    </div>
-                                    <h3>Grilled Marinated</h3>
-                                    <p>Sit amet, consectetur adipiscing elit maximus velit, non eleifend.</p>
-                                </div>
-                                <!-- Menu Item Body end -->
-                            </div>
-                        </div>
-                        <!-- Menu Item end -->
-
-                        <!-- Menu Item start -->
-                        <div class="col-lg-4 col-md-6 menu-item-box breakfast lunches">
-                            <div class="menu-item">
-                                <!-- Menu Item Image start -->
-                                <div class="menu-item-img">
-                                    <figure class="image-anime">
-                                        <img src="assets/images/menu-2.jpg" alt="">
-                                    </figure>
-                                </div>
-                                <!-- Menu Item Image start -->
-
-                                <!-- Menu Item Body start -->
-                                <div class="menu-item-body">
-                                    <div class="rating-img">
-                                        <img src="assets/images/start-rating.png" alt="">
-                                    </div>
-                                    <h3>Fried Egg</h3>
-                                    <p>Sit amet, consectetur adipiscing elit maximus velit, non eleifend.</p>
-                                </div>
-                                <!-- Menu Item Body end -->
-                            </div>
-                        </div>
-                        <!-- Menu Item end -->
-
-                        <!-- Menu Item start -->
-                        <div class="col-lg-4 col-md-6 menu-item-box dinner fast-foods">
-                            <div class="menu-item">
-                                <!-- Menu Item Image start -->
-                                <div class="menu-item-img">
-                                    <figure class="image-anime">
-                                        <img src="assets/images/menu-3.jpg" alt="">
-                                    </figure>
-                                </div>
-                                <!-- Menu Item Image start -->
-
-                                <!-- Menu Item Body start -->
-                                <div class="menu-item-body">
-                                    <div class="rating-img">
-                                        <img src="assets/images/start-rating.png" alt="">
-                                    </div>
-                                    <h3>Sardine Spaghetti</h3>
-                                    <p>Sit amet, consectetur adipiscing elit maximus velit, non eleifend.</p>
-                                </div>
-                                <!-- Menu Item Body end -->
-                            </div>
-                        </div>
-                        <!-- Menu Item end -->
-
-                        <!-- Menu Item start -->
-                        <div class="col-lg-4 col-md-6 menu-item-box dessert">
-                            <div class="menu-item">
-                                <!-- Menu Item Image start -->
-                                <div class="menu-item-img">
-                                    <figure class="image-anime">
-                                        <img src="assets/images/menu-4.jpg" alt="">
-                                    </figure>
-                                </div>
-                                <!-- Menu Item Image start -->
-
-                                <!-- Menu Item Body start -->
-                                <div class="menu-item-body">
-                                    <div class="rating-img">
-                                        <img src="assets/images/start-rating.png" alt="">
-                                    </div>
-                                    <h3>Ice Waffle</h3>
-                                    <p>Sit amet, consectetur adipiscing elit maximus velit, non eleifend.</p>
-                                </div>
-                                <!-- Menu Item Body end -->
-                            </div>
-                        </div>
-                        <!-- Menu Item end -->
-
-                        <!-- Menu Item start -->
-                        <div class="col-lg-4 col-md-6 menu-item-box drinks lunches dinner">
-                            <div class="menu-item">
-                                <!-- Menu Item Image start -->
-                                <div class="menu-item-img">
-                                    <figure class="image-anime">
-                                        <img src="assets/images/menu-5.jpg" alt="">
-                                    </figure>
-                                </div>
-                                <!-- Menu Item Image start -->
-
-                                <!-- Menu Item Body start -->
-                                <div class="menu-item-body">
-                                    <div class="rating-img">
-                                        <img src="assets/images/start-rating.png" alt="">
-                                    </div>
-                                    <h3>Egg Omelet</h3>
-                                    <p>Sit amet, consectetur adipiscing elit maximus velit, non eleifend.</p>
-                                </div>
-                                <!-- Menu Item Body end -->
-                            </div>
-                        </div>
-                        <!-- Menu Item end -->
-
-                        <!-- Menu Item start -->
-                        <div class="col-lg-4 col-md-6 menu-item-box dinner lunches">
-                            <div class="menu-item">
-                                <!-- Menu Item Image start -->
-                                <div class="menu-item-img">
-                                    <figure class="image-anime">
-                                        <img src="assets/images/menu-6.jpg" alt="">
-                                    </figure>
-                                </div>
-                                <!-- Menu Item Image start -->
-
-                                <!-- Menu Item Body start -->
-                                <div class="menu-item-body">
-                                    <div class="rating-img">
-                                        <img src="assets/images/start-rating.png" alt="">
-                                    </div>
-                                    <h3>Gourmet meal</h3>
-                                    <p>Sit amet, consectetur adipiscing elit maximus velit, non eleifend.</p>
-                                </div>
-                                <!-- Menu Item Body end -->
-                            </div>
-                        </div>
-                        <!-- Menu Item end -->
-
-                    </div>
-                    <!-- Menu Item Box end -->
-                </div>
-                <!-- Menu Dises Section End -->
-            </div>
-        </div>
-    </div>
     <!-- Most Popular Dises End -->
 
     <!-- Food Pricing Start -->
-    <div class="food-pricing">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-12">
-                    <!-- Section Ttile start -->
-                    <div class="section-title">
-                        <h3 class="wow fadeInUp" data-wow-delay="0.50s">Best Pricing</h3>
-                        <h2 class="text-anime">Foods Pricing</h2>
-                    </div>
-                    <!-- Section Ttile end -->
-                </div>
-            </div>
 
-            <div class="row">
-                <div class="col-lg-8 col-md-12">
-                    <!-- Food Pricing List start -->
-                    <div class="pricing-list wow fadeInUp" data-wow-delay="0.75s">
-                        <!-- Pricing List Item start -->
-                        <div class="pricing-list-item">
-                            <ul>
-                                <li>
-                                    <span class="price-list-title">Vegetables Burger</span>
-                                    <span class="price-list-separator"></span>
-                                    <span class="price-list-price">$29</span>
-                                </li>
-                            </ul>
-                            <p>Duis nec semper ligula. Nullam nec justo vel metus gravida consequat Suspendi.</p>
-                        </div>
-                        <!-- Pricing List Item end -->
-
-                        <!-- Pricing List Item start -->
-                        <div class="pricing-list-item">
-                            <ul>
-                                <li>
-                                    <span class="price-list-title">Lemon Tea</span>
-                                    <span class="price-list-separator"></span>
-                                    <span class="price-list-price">$29</span>
-                                </li>
-                            </ul>
-                            <p>Duis nec semper ligula. Nullam nec justo vel metus gravida consequat Suspendi.</p>
-                        </div>
-                        <!-- Pricing List Item end -->
-
-                        <!-- Pricing List Item start -->
-                        <div class="pricing-list-item">
-                            <ul>
-                                <li>
-                                    <span class="price-list-title">Noodles</span>
-                                    <span class="price-list-separator"></span>
-                                    <span class="price-list-price">$29</span>
-                                </li>
-                            </ul>
-                            <p>Duis nec semper ligula. Nullam nec justo vel metus gravida consequat Suspendi.</p>
-                        </div>
-                        <!-- Pricing List Item end -->
-
-                        <!-- Pricing List Item start -->
-                        <div class="pricing-list-item">
-                            <ul>
-                                <li>
-                                    <span class="price-list-title">Fried Potatoes</span>
-                                    <span class="price-list-separator"></span>
-                                    <span class="price-list-price">$29</span>
-                                </li>
-                            </ul>
-                            <p>Duis nec semper ligula. Nullam nec justo vel metus gravida consequat Suspendi.</p>
-                        </div>
-                        <!-- Pricing List Item end -->
-
-                        <!-- Pricing List Item start -->
-                        <div class="pricing-list-item">
-                            <ul>
-                                <li>
-                                    <span class="price-list-title">Aloo Gobi</span>
-                                    <span class="price-list-separator"></span>
-                                    <span class="price-list-price">$29</span>
-                                </li>
-                            </ul>
-                            <p>Duis nec semper ligula. Nullam nec justo vel metus gravida consequat Suspendi.</p>
-                        </div>
-                        <!-- Pricing List Item end -->
-
-                        <!-- Pricing List Item start -->
-                        <div class="pricing-list-item">
-                            <ul>
-                                <li>
-                                    <span class="price-list-title">Bone Steak</span>
-                                    <span class="price-list-separator"></span>
-                                    <span class="price-list-price">$29</span>
-                                </li>
-                            </ul>
-                            <p>Duis nec semper ligula. Nullam nec justo vel metus gravida consequat Suspendi.</p>
-                        </div>
-                        <!-- Pricing List Item end -->
-                    </div>
-                    <!-- Food Pricing List end -->
-                </div>
-
-                <div class="col-lg-4 col-md-12">
-                    <!-- Food Pricing Bar start -->
-                    <div class="food-bar-items">
-                        <!-- Food Bar Item start -->
-                        <div class="food-bar-1 wow fadeInUp" data-wow-delay="1.00s">
-                            <div class="food-bar-details">
-                                <h3>Delicious Meal</h3>
-                                <p>Duis nec semper ligula Nullam.</p>
-                                <h4>50% Off</h4>
-                                <a href="#" class="btn-default">Order Online</a>
-                            </div>
-                        </div>
-                        <!-- Food Bar Item end -->
-
-                        <!-- Food Bar Item start -->
-                        <div class="food-bar-2 wow fadeInUp" data-wow-delay="1.25s">
-                            <div class="food-bar-details">
-                                <h3>Japanese Food</h3>
-                                <p>Duis nec semper ligula Nullam.</p>
-                                <h4>Buy 1 Get 1 Free</h4>
-                                <a href="#" class="btn-default">Order Online</a>
-                            </div>
-                        </div>
-                        <!-- Food Bar Item end -->
-                    </div>
-                    <!-- Food Pricing Bar end -->
-                </div>
-            </div>
-        </div>
-
-    </div>
     <!-- Food Pricing End -->
 
     <!-- Restaurants Information Start -->
@@ -559,12 +247,12 @@ if (isset($_GET['lg'])) {
                             </div>
                             <!-- Section Ttile end -->
 
-                            <p class="wow fadeInUp" data-wow-delay="0.75s">Sed do eiusmod tempor incididunt ut labore et
-                                dolore magna aliqua. Ut enim ad minim veniam</p>
+                            <p class="wow fadeInUp" data-wow-delay="0.75s">Vegetarian options abound, showcasing the
+                                freshest seasonal produce and innovative cooking techniques.</p>
 
                             <div class="info-btn">
-                                <a href="#" class="btn-default wow fadeInUp" data-wow-delay="1.00s">Find Restaurant</a>
-                                <a href="#" class="btn-default wow fadeInUp" data-wow-delay="1.25s">Explore Menu</a>
+                                <a href="menu.php" class="btn-default wow fadeInUp" data-wow-delay="1.25s">Explore
+                                    Menu</a>
                             </div>
 
                         </div>
@@ -660,10 +348,12 @@ if (isset($_GET['lg'])) {
                                 <div class="swiper-slide">
                                     <div class="testimonial-slide">
                                         <div class="testimonial-body">
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                industry. Lorem Ipsum has been the industry's standard dummy text ever
-                                                since the 1500s, when an unknown printer took a galley of type and
-                                                scrambled mak a type specimen book.</p>
+                                            <p>Indulge your senses with our exquisite menu crafted with passion and care
+                                                by our team of talented chefs. Start your culinary adventure with a
+                                                selection of artisanal appetizers, bursting with vibrant colors and bold
+                                                flavors. From delicate bruschetta topped with ripe tomatoes and basil to
+                                                crispy calamari served with zesty aioli, each dish is a masterpiece in
+                                                its own right.</p>
                                         </div>
 
                                         <div class="testimonial-footer">
@@ -678,10 +368,12 @@ if (isset($_GET['lg'])) {
                                 <div class="swiper-slide">
                                     <div class="testimonial-slide">
                                         <div class="testimonial-body">
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                industry. Lorem Ipsum has been the industry's standard dummy text ever
-                                                since the 1500s, when an unknown printer took a galley of type and
-                                                scrambled mak a type specimen book.</p>
+                                            <p>Indulge your senses with our exquisite menu crafted with passion and care
+                                                by our team of talented chefs. Start your culinary adventure with a
+                                                selection of artisanal appetizers, bursting with vibrant colors and bold
+                                                flavors. From delicate bruschetta topped with ripe tomatoes and basil to
+                                                crispy calamari served with zesty aioli, each dish is a masterpiece in
+                                                its own right.</p>
                                         </div>
 
                                         <div class="testimonial-footer">
@@ -696,10 +388,12 @@ if (isset($_GET['lg'])) {
                                 <div class="swiper-slide">
                                     <div class="testimonial-slide">
                                         <div class="testimonial-body">
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                industry. Lorem Ipsum has been the industry's standard dummy text ever
-                                                since the 1500s, when an unknown printer took a galley of type and
-                                                scrambled mak a type specimen book.</p>
+                                            <p>Indulge your senses with our exquisite menu crafted with passion and care
+                                                by our team of talented chefs. Start your culinary adventure with a
+                                                selection of artisanal appetizers, bursting with vibrant colors and bold
+                                                flavors. From delicate bruschetta topped with ripe tomatoes and basil to
+                                                crispy calamari served with zesty aioli, each dish is a masterpiece in
+                                                its own right.</p>
                                         </div>
 
                                         <div class="testimonial-footer">
@@ -731,111 +425,7 @@ if (isset($_GET['lg'])) {
         </div>
     </div>
 
-    <!-- Testimonials Section End -->
 
-    <!-- Upcoming Events Post Start -->
-    <div class="events-post">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <!-- Section Title start -->
-                    <div class="section-title">
-                        <h3 class="wow fadeInUp" data-wow-delay="0.50s">Features Events</h3>
-                        <h2 class="text-anime">Upcoming Events</h2>
-                    </div>
-                    <!-- Section Title end -->
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-4 col-md-12">
-                    <!-- Post Item Start -->
-                    <div class="post-item wow fadeInUp" data-wow-delay="0.75s">
-                        <!-- Post Featured Image start -->
-                        <div class="post-featured-image">
-                            <a href="blog-single.php">
-                                <figure class="image-anime">
-                                    <img src="assets/images/post-1.jpg" alt="">
-                                </figure>
-                            </a>
-                        </div>
-                        <!-- Post Featured Image end -->
-
-                        <!-- Post Header Start -->
-                        <div class="post-header">
-                            <div class="post-meta">
-                                <ul>
-                                    <li class="post-meta-date"><a href="blog-single.php">March 17, 2024</a></li>
-                                    <li><a href="#">Restaurants</a></li>
-                                </ul>
-                            </div>
-                            <h3><a href="blog-single.php">Wine and Dine: Perfect Pairings for an Unforgettable Meal</a>
-                            </h3>
-                        </div>
-                        <!-- Post Header End -->
-                    </div>
-                    <!-- Post Item End -->
-                </div>
-
-                <div class="col-lg-4 col-md-12">
-                    <!-- Post Item Start -->
-                    <div class="post-item wow fadeInUp" data-wow-delay="1.0s">
-                        <!-- Post Featured Image start -->
-                        <div class="post-featured-image">
-                            <a href="blog-single.php">
-                                <figure class="image-anime">
-                                    <img src="assets/images/post-2.jpg" alt="">
-                                </figure>
-                            </a>
-                        </div>
-                        <!-- Post Featured Image end -->
-
-                        <!-- Post Header Start -->
-                        <div class="post-header">
-                            <div class="post-meta">
-                                <ul>
-                                    <li class="post-meta-date"><a href="blog-single.php">March 17, 2024</a></li>
-                                    <li><a href="#">Restaurants</a></li>
-                                </ul>
-                            </div>
-                            <h3><a href="blog-single.php">A Spotlight on Our Culinary Innovations</a></h3>
-                        </div>
-                        <!-- Post Header End -->
-                    </div>
-                    <!-- Post Item End -->
-                </div>
-
-                <div class="col-lg-4 col-md-12">
-                    <!-- Post Item Start -->
-                    <div class="post-item wow fadeInUp" data-wow-delay="1.25s">
-                        <!-- Post Featured Image start -->
-                        <div class="post-featured-image">
-                            <a href="blog-single.php">
-                                <figure class="image-anime">
-                                    <img src="assets/images/post-3.jpg" alt="">
-                                </figure>
-                            </a>
-                        </div>
-                        <!-- Post Featured Image end -->
-
-                        <!-- Post Header Start -->
-                        <div class="post-header">
-                            <div class="post-meta">
-                                <ul>
-                                    <li class="post-meta-date"><a href="blog-single.php">March 17, 2024</a></li>
-                                    <li><a href="#">Restaurants</a></li>
-                                </ul>
-                            </div>
-                            <h3><a href="blog-single.php">Tantalizing Tidbits: Fun Facts About Our Menu Creations</a>
-                            </h3>
-                        </div>
-                        <!-- Post Header End -->
-                    </div>
-                    <!-- Post Item End -->
-                </div>
-            </div>
-        </div>
-    </div>
 
 
     <?php require_once 'assets/includes/footer.php'; ?>

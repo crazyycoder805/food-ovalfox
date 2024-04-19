@@ -346,7 +346,7 @@ if (isset($_GET['c'])) {
 
                             <div class="post-item">
                                 <div class="post-img">
-                                    <a href="blog-details.html"><img src="assets/images/post-2.jpg" alt=""></a>
+                                    <a href="#"><img src="assets/images/post-2.jpg" alt=""></a>
                                 </div>
                                 <div class="post-body">
                                     <div class="post-meta">
@@ -357,7 +357,7 @@ if (isset($_GET['c'])) {
                                             </li>
                                         </ul>
                                     </div>
-                                    <h3><a href="blog-single.html"><?php echo $spf['food_name']; ?></a></h3>
+                                    <h3><a href="#"><?php echo $spf['food_name']; ?></a></h3>
                                 </div>
                             </div>
                             <?php } ?>

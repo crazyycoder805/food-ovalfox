@@ -21,7 +21,7 @@
                         <h1 class="text-anime">Contact Us</h1>
                         <nav>
                             <ol class="breadcrumb wow fadeInUp" data-wow-delay="0.50s">
-                                <li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
+                                <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                                 <li class="breadcrumb-item active">Contact Us</li>
                             </ol>
                         </nav>
@@ -116,9 +116,8 @@
                 <div class="col-lg-8 col-md-12 order-lg-1 order-2">
                     <!-- Google Map start -->
                     <div class="google-map wow fadeInUp" data-wow-delay="0.75s">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d56481.31329163797!2d-82.30112043759952!3d27.776444959332093!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sUnited%20States%20solar!5e0!3m2!1sen!2sin!4v1706008331370!5m2!1sen!2sin"
-                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d68205.20964723279!2d73.72885308398098!3d33.14355211014639!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sMirpur%2C%20Azad%20Kashmir!5e0!3m2!1sen!2s!4v1706008331370!5m2!1sen!2s
+" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                     <!-- Google Map end -->
@@ -132,16 +131,16 @@
                         <ul class="contact-list-icon">
                             <li class="list-item">
                                 <span class="list-icon-img"> <img src="assets/images/icon-map.svg" alt=""> </span>
-                                <span class="list-icon-text">123 Main Street Citytown, Stateville 12345 United States
+                                <span class="list-icon-text">Mirpur AJK
                                 </span>
                             </li>
                             <li class="list-item">
                                 <span class="list-icon-img"> <img src="assets/images/icon-email.svg" alt=""> </span>
-                                <span class="list-icon-text"><a href="#">info@domainname.com</a></span>
+                                <span class="list-icon-text"><a href="#">info@sweetnessdelight.com</a></span>
                             </li>
                             <li class="list-item">
                                 <span class="list-icon-img"> <img src="assets/images/icon-phone.svg" alt=""> </span>
-                                <span class="list-icon-text"><a href="#">(+0) 123 456 789</a></span>
+                                <span class="list-icon-text"><a href="#">(+92) 123 456 789</a></span>
                             </li>
                         </ul>
                     </div>

@@ -23,7 +23,7 @@
                         <h1 class="text-anime">About Us</h1>
                         <nav>
                             <ol class="breadcrumb wow fadeInUp" data-wow-delay="0.50s">
-                                <li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
+                                <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                                 <li class="breadcrumb-item active">About Us</li>
                             </ol>
                         </nav>
@@ -97,7 +97,7 @@
                             </div>
                         </div>
 
-                        <a href="#" class="btn-default wow fadeInUp" data-wow-delay="1.50s">Book Now</a>
+                        <a href="menu.php" class="btn-default wow fadeInUp" data-wow-delay="1.50s">Book Now</a>
                     </div>
                     <!-- About Content End -->
                 </div>
@@ -178,126 +178,7 @@
     </div>
     <!-- About Gallery End -->
 
-    <!-- Always Quality Section Start -->
-    <div class="always-quality">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <!-- Section Ttile Start -->
-                    <div class="section-title">
-                        <h3 class="wow fadeInUp" data-wow-delay="0.50s">Always Quality</h3>
-                        <h2 class="text-anime">Our Talented Chefs</h2>
-                    </div>
-                    <!-- Section Ttile End -->
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-4 col-md-12">
-                    <!-- Out Team Card start -->
-                    <div class="team-card wow fadeInUp" data-wow-delay="0.75s">
-                        <!-- Team Member Image Start -->
-                        <div class="team-img">
-                            <figure class="image-anime">
-                                <img src="assets/images/team-1.jpg" alt="">
-                            </figure>
-                        </div>
-                        <!-- Team Member Image End -->
-
-                        <!-- Team Body Start -->
-                        <div class="team-body">
-                            <div class="team-card-header">
-                                <h4>CHEF</h4>
-                                <h3>William Smith</h3>
-                            </div>
-
-                            <div class="team-content">
-                                <p>Everything We Pizza, We Pizza With Love. Designer Fastfood.</p>
-                            </div>
-
-                            <div class="team-social-link">
-                                <a href="#" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
-                                <a href="#" class="social-link"><i class="fa-brands fa-twitter"></i></a>
-                                <a href="#" class="social-link"><i class="fa-brands fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                        <!-- Team Body End -->
-                    </div>
-                    <!-- Out Team Card end -->
-                </div>
-
-                <div class="col-lg-4 col-md-12">
-                    <!-- Out Team Card start -->
-                    <div class="team-card wow fadeInUp" data-wow-delay="1.0s">
-                        <!-- Team Member Image Start -->
-                        <div class="team-img">
-                            <figure class="image-anime">
-                                <img src="assets/images/team-2.jpg" alt="">
-                            </figure>
-                        </div>
-                        <!-- Team Member Image End -->
-
-                        <!-- Team Body Start -->
-                        <div class="team-body">
-                            <div class="team-card-header">
-                                <h4>MANAGER</h4>
-                                <h3>John Doe</h3>
-                            </div>
-
-                            <div class="team-content">
-                                <p>Everything We Pizza, We Pizza With Love. Designer Fastfood.</p>
-                            </div>
-
-                            <div class="team-social-link">
-                                <a href="#" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
-                                <a href="#" class="social-link"><i class="fa-brands fa-twitter"></i></a>
-                                <a href="#" class="social-link"><i class="fa-brands fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                        <!-- Team Body End -->
-                    </div>
-                    <!-- Out Team Card end -->
-                </div>
-
-                <div class="col-lg-4 col-md-12">
-                    <!-- Out Team Card start -->
-                    <div class="team-card wow fadeInUp" data-wow-delay="1.25s">
-                        <!-- Team Member Image Start -->
-                        <div class="team-img">
-                            <figure class="image-anime">
-                                <img src="assets/images/team-3.jpg" alt="">
-                            </figure>
-                        </div>
-                        <!-- Team Member Image End -->
-
-                        <!-- Team Body Start -->
-                        <div class="team-body">
-                            <div class="team-card-header">
-                                <h4>CHEF</h4>
-                                <h3>Arita Banson</h3>
-                            </div>
-
-                            <div class="team-content">
-                                <p>Everything We Pizza, We Pizza With Love. Designer Fastfood.</p>
-                            </div>
-
-                            <div class="team-social-link">
-                                <a href="#" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
-                                <a href="#" class="social-link"><i class="fa-brands fa-twitter"></i></a>
-                                <a href="#" class="social-link"><i class="fa-brands fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                        <!-- Team Body End -->
-                    </div>
-                    <!-- Out Team Card end -->
-                </div>
-            </div>
-
-
-        </div>
-    </div>
-    <!-- Always Quality Section End -->
-
+   
 
 
 
@@ -449,8 +330,7 @@
                                 dolore magna aliqua. Ut enim ad minim veniam</p>
 
                             <div class="info-btn">
-                                <a href="#" class="btn-default wow fadeInUp" data-wow-delay="1.00s">Find Restaurant</a>
-                                <a href="#" class="btn-default wow fadeInUp" data-wow-delay="1.25s">Explore Menu</a>
+                                <a href="menu.php" class="btn-default wow fadeInUp" data-wow-delay="1.25s">Explore Menu</a>
                             </div>
 
                         </div>

@@ -13,7 +13,6 @@ if (isset($_POST['username'])) {
             $_SESSION['food_project_user_id'] = $user[0]['id'];
 
             $_SESSION['food_project_username'] = $user[0]['username'];
-            $_SESSION['food_project_email'] = $user[0]['username'];
 
             $_SESSION['food_project_email'] = $user[0]['email'];
 
@@ -49,11 +48,11 @@ if (isset($_POST['username'])) {
                 <div class="col-md-12">
                     <!-- Page Header Box start -->
                     <div class="page-header-box">
-                        <h1 class="text-anime">Advance Booking</h1>
+                        <h1 class="text-anime">Signin</h1>
                         <nav>
                             <ol class="breadcrumb wow fadeInUp" data-wow-delay="0.50s">
-                                <li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
-                                <li class="breadcrumb-item active">Booking</li>
+                                <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+                                <li class="breadcrumb-item active">Signin</li>
                             </ol>
                         </nav>
                     </div>

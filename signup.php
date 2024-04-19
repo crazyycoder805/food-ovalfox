@@ -18,7 +18,8 @@ if (isset($_POST['username'])) {
                                 if (!$pdo->isDataInserted("users", ['email' => $_POST['email']])) {
                                     if (!$pdo->isDataInserted("users", ['username' => $_POST['username']])) {
                                         if (!$pdo->isDataInserted("users", ['phone' => $_POST['phone']])) {
-                                            if ($pdo->create("users", ['username' => $_POST['username'], 'password' => $_POST['password'], 'fname' => $_POST['fname'], 'lname' => $_POST['lname'], 
+                                            if ($pdo->create("users", ['username' => $_POST['username'], 
+                                            'password' => $_POST['password'], 'fname' => $_POST['fname'], 'email' => $_POST['email'], 'lname' => $_POST['lname'], 
                                             'phone' => $_POST['phone']])) {
                                                 $success = "Account created please sign in to proccess further. <a href='login.php'>Sign in</a>";
                                             }
@@ -73,11 +74,11 @@ if (isset($_POST['username'])) {
                 <div class="col-md-12">
                     <!-- Page Header Box start -->
                     <div class="page-header-box">
-                        <h1 class="text-anime">Advance Booking</h1>
+                        <h1 class="text-anime">Signup</h1>
                         <nav>
                             <ol class="breadcrumb wow fadeInUp" data-wow-delay="0.50s">
-                                <li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
-                                <li class="breadcrumb-item active">Booking</li>
+                                <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+                                <li class="breadcrumb-item active">Signup</li>
                             </ol>
                         </nav>
                     </div>

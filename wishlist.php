@@ -33,7 +33,7 @@ if (isset($_SESSION['food_project_username'])) {
                         <h1 class="text-anime">Gallery</h1>
                         <nav>
                             <ol class="breadcrumb wow fadeInUp" data-wow-delay="0.50s">
-                                <li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
+                                <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                                 <li class="breadcrumb-item active">Gallery</li>
                             </ol>
                         </nav>
@@ -82,7 +82,7 @@ if (isset($_SESSION['food_project_username'])) {
                                 <td><?php echo $food[0]['food_name']; ?></td>
                                 <td><?php echo $food[0]['food_price']; ?></td>
                                 <td><?php echo $item['createdAt']; ?></td>
-                                <td><a href="menu.php?c=<?php echo $food[0]['id']; ?>">Add to cart</a></td>
+                                <td><a href="menu.php?c=<?php echo $food[0]['id']; ?>">Add to cart</a> | <a href="menu.php?r=<?php echo $food[0]['id']; ?>">Remove</a></td>
 
                             </tr>
                             <?php } ?>

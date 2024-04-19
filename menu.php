@@ -78,6 +78,15 @@ if (isset($_GET['c'])) {
     } else {
         $error = "Please sign in to wishlist this item. <a href='login.php'>Sign in</a>";
     }
+} else if (isset($_GET['r'])) {
+    if ($pdo->delete("wishlist", $_GET['r'])) {
+        $success = "Wishlist item deleted.";
+        $pdo->headTo("menu.php", 3000);
+    } else {
+        $error = "Smoething went wrong";
+    }
+    
+    
 }
 ?>
 
@@ -99,7 +108,7 @@ if (isset($_GET['c'])) {
                         <h1 class="text-anime">Menu</h1>
                         <nav>
                             <ol class="breadcrumb wow fadeInUp" data-wow-delay="0.50s">
-                                <li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
+                                <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                                 <li class="breadcrumb-item active">Menu</li>
                             </ol>
                         </nav>
