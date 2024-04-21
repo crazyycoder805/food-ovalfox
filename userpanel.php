@@ -2,10 +2,14 @@
 <html lang="zxx">
 <?php require_once 'assets/includes/head.php'; ?>
 
-<?php 
-$total_orders_completed = $pdo->read("stripe_payments" ,['status' => 'succeeded', 'user_id' => $_SESSION['food_project_user_id']]);
-$total_wishlisted_items = $pdo->read("wishlist" ,['user_id' => $_SESSION['food_project_user_id']]);
-$total_cart_items = $pdo->read("cart" ,['user_id' => $_SESSION['food_project_user_id']]);
+<?php
+if (!isset($_SESSION['food_project_user_id'])) {
+    header("location:login.php");
+} 
+$total_orders_completed = $pdo->read("stripe_payments", ['status' => 'succeeded', 'user_id' => $_SESSION['food_project_user_id']]);
+$total_wishlisted_items = $pdo->read("wishlist", ['user_id' => $_SESSION['food_project_user_id']]);
+$total_cart_items = $pdo->read("cart", ['user_id' => $_SESSION['food_project_user_id']]);
+$total_bookings = $pdo->read("bookings", ['user_id' => $_SESSION['food_project_user_id']]);
 $success = "";
 $error = "";
 if (isset($_POST['fname'])) { 
@@ -54,6 +58,13 @@ if (isset($_POST['fname'])) {
         $error = "All fields are required.";
     }
     
+} else if (isset($_GET['cb'])) {
+    if ($pdo->update("bookings", ['id' => $_GET['cb']], ['status' => 'cancel'])) {
+        $success = "Booking canceld.";
+                     header("Location:userpanel.php");
+    } else {
+        $error = "Something went wrong.";
+    }
 }
 
 
@@ -100,6 +111,7 @@ if (isset($_POST['fname'])) {
                             <li><a href="#" data-filter=".dashboard"><span class="text-muted">Dashboard</span></a></li>
                             <li><a href="#" data-filter=".orders-complete"><span class="text-muted">Orders
                                         Completed</span></a></li>
+                            <li><a href="#" data-filter=".bookings"><span class="text-muted">Bookings</span></a></li>
                             <li><a href="#" data-filter=".eidt-profile"><span class="text-muted">Edit Profile</span></a>
                             </li>
                             <li><a href="index.php?lg=true"><span class="text-muted">Logout</span></a></li>
@@ -137,6 +149,15 @@ if (isset($_POST['fname'])) {
                                     <div class="card">
                                         <div class="card-body">
                                             Cart items (<?php echo count($total_cart_items); ?>)
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            Bookings Completed (<?php echo count($total_bookings); ?>)
                                         </div>
                                     </div>
                                 </div>
@@ -206,6 +227,7 @@ if (isset($_POST['fname'])) {
 
                             </div>
                         </div>
+
                         <div class="col-md menu-item-box breakfast eidt-profile">
                             <div class="booking-form">
                                 <form id="bookingForm" action="#" method="POST" data-toggle="validator">
@@ -229,7 +251,8 @@ if (isset($_POST['fname'])) {
                                         <div class="form-group col-md-6 mb-4">
                                             <input type="email" name="email"
                                                 value="<?php echo $_SESSION['food_project_email'] ?>"
-                                                class="form-control" placeholder="Email" id="email" name="email" required>
+                                                class="form-control" placeholder="Email" id="email" name="email"
+                                                required>
                                             <div class="help-block with-errors"></div>
                                         </div>
 
@@ -252,7 +275,73 @@ if (isset($_POST['fname'])) {
                             </div>
 
                         </div>
+                        <div class="col-md menu-item-box breakfast bookings">
+                            <div class="row">
+                                <div class="col-md">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <table class="table table-bordered table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th style="font-size: 10px;">Name</th>
+                                                        <th style="font-size: 10px;">Email</th>
+                                                        <th style="font-size: 10px;">Phone</th>
+                                                        <th style="font-size: 10px;">Date</th>
+                                                        <th style="font-size: 10px;">Time</th>
+                                                        <th style="font-size: 10px;">People</th>
 
+                                                        <th style="font-size: 10px;">Child</th>
+                                                        <th style="font-size: 10px;">Message</th>
+                                                        <th style="font-size: 10px;">Status</th>
+                                                        <th style="font-size: 10px;">Action</th>
+
+                                                        <th style="font-size: 10px;">Created at</th>
+
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
+                                                    foreach ($total_bookings as $booking) {
+                                                    ?>
+                                                    <tr>
+                                                        <td style="font-size: 10px;"><?php echo $booking['name']; ?>
+                                                        </td>
+                                                        <td style="font-size: 10px;"><?php echo $booking['email']; ?>
+                                                        </td>
+                                                        <td style="font-size: 10px;">
+                                                            <?php echo $booking['phone']; ?></td>
+                                                        <td style="font-size: 10px;"><?php echo $booking['date']; ?>
+                                                        </td>
+                                                        <td style="font-size: 10px;"><?php echo $booking['time']; ?>
+                                                        </td>
+                                                        <td style="font-size: 10px;">
+                                                            <?php echo $booking['nop']; ?></td>
+
+                                                        <td style="font-size: 10px;"><?php echo $booking['noc']; ?></td>
+                                                        <td style="font-size: 10px;"><?php echo $booking['message']; ?>
+                                                        </td>
+                                                        <td style="font-size: 10px;"><?php echo $booking['status']; ?>
+                                                        </td>
+                                                        <td style="font-size: 10px;"><?php 
+                                                        if ($booking['status'] == 'pending') {
+                                                        ?>
+                                                            <a href="userpanel.php?cb=<?php echo $booking['id']; ?>">CANCEL</a>
+                                                            <?php } ?>
+                                                        </td>
+                                                        <td style="font-size: 10px;">
+                                                            <?php echo $booking['created_at']; ?></td>
+
+                                                    </tr>
+                                                    <?php } ?>
+                                                </tbody>
+
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
 
                     </div>
                     <!-- Menu Item Box end -->

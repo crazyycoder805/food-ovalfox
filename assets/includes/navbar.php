@@ -17,7 +17,7 @@
                <div class="container">
                    <!-- Logo Start -->
                    <a class="navbar-brand" href="index.php">
-                       Sweetness Delight
+                       <img height="50" width="70" src="assets/images/burger.png" alt="" />
                    </a>
                    <!-- Logo End -->
 
@@ -27,6 +27,8 @@
                            <li class="nav-item first-menu"><a class="nav-link" href="index.php">Home</a></li>
                            <li class="nav-item"><a class="nav-link" href="about.php">About us</a></li>
                            <li class="nav-item"><a class="nav-link" href="menu.php">Menu</a></li>
+                           <li class="nav-item"><a class="nav-link" href="booking.php">Booking</a></li>
+
                            <li class="nav-item submenu"><a class="nav-link" href="#">Access</a>
                                <ul>
 

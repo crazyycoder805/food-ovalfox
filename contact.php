@@ -51,7 +51,7 @@
                             sit amet, consectetur adipisicing elit, sed do usmod temp idunt ut et dolore magna aliqua ut
                             enim ad minim.</p>
 
-                        <a href="#" class="btn-default wow fadeInUp" data-wow-delay="1.0s">Book Now</a>
+                        <a href="booking.php" class="btn-default wow fadeInUp" data-wow-delay="1.0s">Book Now</a>
                     </div>
                 </div>
 
@@ -116,8 +116,7 @@
                 <div class="col-lg-8 col-md-12 order-lg-1 order-2">
                     <!-- Google Map start -->
                     <div class="google-map wow fadeInUp" data-wow-delay="0.75s">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d68205.20964723279!2d73.72885308398098!3d33.14355211014639!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sMirpur%2C%20Azad%20Kashmir!5e0!3m2!1sen!2s!4v1706008331370!5m2!1sen!2s
-" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.1839803462094!2d-73.96382008460493!3d40.62558777934121!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25fa47c6e6757%3A0x3f7d21d3079a3e5f!2s1150%20Coney%20Island%20Ave%2C%20Brooklyn%2C%20NY%2011230%2C%20USA!5e0!3m2!1sen!2s!4v1706008331370!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                     <!-- Google Map end -->
@@ -131,7 +130,7 @@
                         <ul class="contact-list-icon">
                             <li class="list-item">
                                 <span class="list-icon-img"> <img src="assets/images/icon-map.svg" alt=""> </span>
-                                <span class="list-icon-text">Mirpur AJK
+                                <span class="list-icon-text">1150 Coney Island Ave, Brooklyn, NY 11230
                                 </span>
                             </li>
                             <li class="list-item">
@@ -140,7 +139,7 @@
                             </li>
                             <li class="list-item">
                                 <span class="list-icon-img"> <img src="assets/images/icon-phone.svg" alt=""> </span>
-                                <span class="list-icon-text"><a href="#">(+92) 123 456 789</a></span>
+                                <span class="list-icon-text"><a href="#">Brooklyn USA 917 6500676</a></span>
                             </li>
                         </ul>
                     </div>

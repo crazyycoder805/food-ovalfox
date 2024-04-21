@@ -3,7 +3,9 @@
 
 <?php require_once 'assets/includes/head.php'; ?>
 <?php 
-
+if (isset($_SESSION['food_project_user_id'])) {
+    header("location:index.php");
+}
 $success = "";
 $error = "";
 

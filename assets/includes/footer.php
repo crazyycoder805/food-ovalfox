@@ -42,7 +42,8 @@
                     <div class="footer-about">
                         <!-- Footer Logo start -->
                         <div class="footer-logo">
-                            Sweetness Delight
+                            <img height="140" width="150" src="assets/images/burger.png" alt="" />
+
                         </div>
                         <!-- Footer Logo end -->
 
@@ -67,10 +68,12 @@
                                     foreach ($category as $cs) {
                                         
                                     ?>
-                                    <li><a href="menu.php"><i class="fa-solid fa-arrow-right"></i><?php echo $cs['category']; ?></a></li>
+                                    <li><a href="menu.php"><i
+                                                class="fa-solid fa-arrow-right"></i><?php echo $cs['category']; ?></a>
+                                    </li>
                                     <?php } ?>
 
-                                    
+
                                 </ul>
                             </div>
                         </div>
@@ -100,11 +103,11 @@
                         <ul>
                             <li>
                                 <span class="icon-list-icon"><i class="fa-solid fa-location-dot"></i></span>
-                                <span class="icon-list-text">Mirpur AJK</span>
+                                <span class="icon-list-text">1150 Coney Island Ave, Brooklyn, NY 11230</span>
                             </li>
                             <li>
                                 <span class="icon-list-icon"><i class="fa-solid fa-phone"></i></span>
-                                <span class="icon-list-text"><a href="#">(+92) 123 456 789</a></span>
+                                <span class="icon-list-text"><a href="#">Brooklyn USA 917 6500676</a></span>
                             </li>
                             <li>
                                 <span class="icon-list-icon"><i class="fa-solid fa-envelope"></i></span>

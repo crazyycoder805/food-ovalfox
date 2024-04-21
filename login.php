@@ -3,7 +3,9 @@
 
 <?php require_once 'assets/includes/head.php'; ?>
 <?php 
-
+if (isset($_SESSION['food_project_user_id'])) {
+    header("location:index.php");
+} 
 if (isset($_POST['username'])) { 
     if (!empty($_POST['password']) && !empty($_POST['username'])) {
         $user = $pdo->read('users', ['username'=>$_POST['username'], 'password'=>$_POST['password']]);
