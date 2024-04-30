@@ -125,9 +125,8 @@ if (isset($_GET['c'])) {
                         <h1 class="text-anime">Perfect Pairings for Meal</h1>
                         <nav>
                             <ol class="breadcrumb wow fadeInUp" data-wow-delay="0.50s">
-                                <li class="breadcrumb-item"><a href="#">John Doe</a></li>
-                                <li class="breadcrumb-item active"><a href="#">March 17, 2024</a></li>
-                                <li class="breadcrumb-item active"><a href="#">Restaurants</a></li>
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item active"><a href="#">Menu</a></li>
                             </ol>
                         </nav>
                     </div>
@@ -350,7 +349,7 @@ if (isset($_GET['c'])) {
 
                             <div class="post-item">
                                 <div class="post-img">
-                                    <a href="#"><img src="assets/images/post-2.jpg" alt=""></a>
+                                    <a href="#"><img src="admin/assets/food_project/food/<?php echo $spf['image']; ?>" alt=""></a>
                                 </div>
                                 <div class="post-body">
                                     <div class="post-meta">
