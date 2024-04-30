@@ -153,7 +153,7 @@ if (isset($_GET['c'])) {
                         <ul>
                             <?php 
                             foreach ($food_categories as $category) {
-                               $category_foods = count($pdo->read("food", ['id' => $category['id']]));
+                               $category_foods = count($pdo->read("food", ['food_category_id' => $category['id']]));
                             ?>
                             <li><a href="#" data-filter=".<?php echo $category['category']; ?>">
                                     <img src="assets/images/icon-fast-foods.svg"
@@ -183,7 +183,11 @@ if (isset($_GET['c'])) {
                                 <a href="product-details.php?i=<?php echo $fd['id']; ?>">
                                     <div class="menu-item-img">
                                         <figure class="image-anime">
-                                            <img src="assets/images/menu-1.jpg" alt="">
+                                            <img style="width: 100%;
+                                                                        height: 200px;
+                                                                        background-size: cover;
+  
+  " src="admin/assets/food_project/food/<?php echo $fd['image']; ?>" alt="">
                                         </figure>
                                     </div>
                                 </a>
@@ -203,13 +207,13 @@ if (isset($_GET['c'])) {
                                     ?>
 
                                     </div>
-                                    <h2>£<?php echo $fd['food_price']; ?></h2>
+                                    <h2>$<?php echo $fd['food_price']; ?></h2>
                                     <span class="text-muted"><?php echo $category[0]['category']; ?></span>
 
                                     <a href="product-details.php?i=<?php echo $fd['id']; ?>">
                                         <h3><?php echo $fd['food_name']; ?></h3>
                                     </a>
-                                    <p>Sit amet, consectetur adipiscing elit maximus velit, non eleifend.</p>
+                                    <p class="text-truncate"><?php echo $fd['food_description']; ?>.</p>
 
                                     <div class="text-center">
 

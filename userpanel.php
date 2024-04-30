@@ -172,17 +172,17 @@ if (isset($_POST['fname'])) {
                                             <table class="table table-bordered table-striped">
                                                 <thead>
                                                     <tr>
-                                                        <th style="font-size: 10px;">Order id</th>
-                                                        <th style="font-size: 10px;">Order status</th>
-                                                        <th style="font-size: 10px;">Item</th>
-                                                        <th style="font-size: 10px;">Quantity</th>
-                                                        <th style="font-size: 10px;">Total</th>
-                                                        <th style="font-size: 10px;">Discounted amount</th>
+                                                        <th style="font-size: 8px;">Order id</th>
+                                                        <th style="font-size: 8px;">Order status</th>
+                                                        <th style="font-size: 8px;">Item</th>
+                                                        <th style="font-size: 8px;">Quantity</th>
+                                                        <th style="font-size: 8px;">Total</th>
+                                                        <th style="font-size: 8px;">Discounted amount</th>
 
-                                                        <th style="font-size: 10px;">Vat</th>
-                                                        <th style="font-size: 10px;">Delivery charges</th>
-                                                        <th style="font-size: 10px;">Pay with</th>
-                                                        <th style="font-size: 10px;">Final Amount</th>
+                                                        <th style="font-size: 8px;">Vat</th>
+                                                        <th style="font-size: 8px;">Delivery charges</th>
+                                                        <th style="font-size: 8px;">Pay with</th>
+                                                        <th style="font-size: 8px;">Final Amount</th>
 
                                                     </tr>
                                                 </thead>
@@ -194,22 +194,22 @@ if (isset($_POST['fname'])) {
                                                         $totalPrice[] = $order['final_amount'];
                                                     ?>
                                                     <tr>
-                                                        <td style="font-size: 10px;"><?php echo $order['id']; ?></td>
-                                                        <td style="font-size: 10px;"><?php echo $order['status']; ?>
+                                                        <td style="font-size: 8px;"><?php echo $order['id']; ?></td>
+                                                        <td style="font-size: 8px;"><?php echo $order['status']; ?>
                                                         </td>
-                                                        <td style="font-size: 10px;">
+                                                        <td style="font-size: 8px;">
                                                             <?php echo $food[0]['food_name']; ?></td>
-                                                        <td style="font-size: 10px;"><?php echo $order['quantity']; ?>
+                                                        <td style="font-size: 8px;"><?php echo $order['quantity']; ?>
                                                         </td>
-                                                        <td style="font-size: 10px;"><?php echo $order['total']; ?></td>
-                                                        <td style="font-size: 10px;">
+                                                        <td style="font-size: 8px;"><?php echo $order['total']; ?></td>
+                                                        <td style="font-size: 8px;">
                                                             <?php echo $order['discounted_amount']; ?></td>
 
-                                                        <td style="font-size: 10px;"><?php echo $order['vat']; ?></td>
-                                                        <td style="font-size: 10px;"><?php echo $order['dc']; ?></td>
-                                                        <td style="font-size: 10px;"><?php echo $order['pay_with']; ?>
+                                                        <td style="font-size: 8px;"><?php echo $order['vat']; ?></td>
+                                                        <td style="font-size: 8px;"><?php echo $order['dc']; ?></td>
+                                                        <td style="font-size: 8px;"><?php echo $order['pay_with']; ?>
                                                         </td>
-                                                        <td style="font-size: 10px;">
+                                                        <td style="font-size: 8px;">
                                                             <?php echo $order['final_amount']; ?></td>
 
                                                     </tr>
@@ -325,7 +325,8 @@ if (isset($_POST['fname'])) {
                                                         <td style="font-size: 10px;"><?php 
                                                         if ($booking['status'] == 'pending') {
                                                         ?>
-                                                            <a href="userpanel.php?cb=<?php echo $booking['id']; ?>">CANCEL</a>
+                                                            <a
+                                                                href="userpanel.php?cb=<?php echo $booking['id']; ?>">CANCEL</a>
                                                             <?php } ?>
                                                         </td>
                                                         <td style="font-size: 10px;">

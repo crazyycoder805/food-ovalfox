@@ -165,7 +165,11 @@ if (isset($_GET['c'])) {
                     <div class="post-content wow fadeInUp" data-wow-delay="0.50s">
                         <!-- Post Feature Image Start -->
                         <div class="post-feature-img">
-                            <img src="assets/images/post-single-1.jpg" alt="">
+                            <img style="width: 100%;
+                                                                        height: 800px;
+                                                                        background-size: cover;
+  
+  " src="admin/assets/food_project/food/<?php echo $food[0]['image']; ?>" alt="">
                         </div>
                         <!-- Post Feature Image End -->
 
@@ -305,7 +309,7 @@ if (isset($_GET['c'])) {
                         </h3>
                         <h3>Product name: <?php echo $food[0]['food_name']; ?></h3>
 
-                        <h3>Price: £<?php echo $food[0]['food_price']; ?></h3>
+                        <h3>Price: $<?php echo $food[0]['food_price']; ?></h3>
                         <h3>Category: <?php echo $food_categories[0]['category']; ?></h3>
 
                         <h3>Actions: <a href="product-details.php?i=<?php echo $_GET['i']; ?>&c=<?php echo $food[0]['id']; ?>" class="p-2"

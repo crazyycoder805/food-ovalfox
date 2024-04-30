@@ -43,7 +43,7 @@
                         <!-- Footer Logo start -->
                         <div class="footer-logo">
                             <img height="140" width="150" src="assets/images/burger.png" alt="" />
-
+                            <span style="font-size: 15px;">Sweetness Delight</span>
                         </div>
                         <!-- Footer Logo end -->
 

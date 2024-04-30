@@ -29,7 +29,7 @@ if ($_POST['pay_with'] == "cod") {
 			$food = $pdo->read("food", ['id' => $aci['food_id']]);
 			if ($pdo->create("stripe_payments", ['status' => "succeeded", 'food_id' => $food[0]['id'], 'quantity' => $transformedData[$key][2], 
 			'total' => $transformedData[$key][3], 'final_amount' => $_POST['total_final_amount'], 'sub_total' => $_POST['sub-total-input'], 
-			'discounted_amount' => $_POST['discounted_amount_input'], 'user_id' => $_SESSION['food_project_user_id'], 
+			'discounted_amount' => $_POST['discounted_amount_input'], 'order_status' => 'pending', 'user_id' => $_SESSION['food_project_user_id'], 
 			'pay_with' => $_POST['pay_with'], 'vat' => 3.20, 'dc' => 2.50]) && 
 			$pdo->delete("cart", $_SESSION['food_project_user_id'], 'user_id')) {
 				$paymentSuccess = true;
@@ -86,7 +86,7 @@ if ($_POST['pay_with'] == "cod") {
 			$food = $pdo->read("food", ['id' => $aci['food_id']]);
 			if ($pdo->create("stripe_payments", ['food_id' => $food[0]['id'], 'quantity' => $transformedData[$key][2], 
 			'total' => $transformedData[$key][3], 'final_amount' => $_POST['total_final_amount'], 'sub_total' => $_POST['sub-total-input'], 
-			'discounted_amount' => $_POST['discounted_amount_input'], 'user_id' => $_SESSION['food_project_user_id'], 
+			'discounted_amount' => $_POST['discounted_amount_input'], 'order_status' => 'pending', 'user_id' => $_SESSION['food_project_user_id'], 
 			'pay_with' => $_POST['pay_with'], 'vat' => 3.20, 'dc' => 2.50,'payment_status' => json_encode($data), 
 			'status' => json_decode(json_encode($data), true)['status']]) && 
 			$pdo->delete("cart", $_SESSION['food_project_user_id'], 'user_id')) {

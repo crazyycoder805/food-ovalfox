@@ -140,12 +140,12 @@ if (isset($_POST['cuppon_code'])) {
                             ?>
                             <tr class="text-center" id="target-table">
                                 <td class="fn"><?php echo $food[0]['food_name']; ?></td>
-                                <td>£<span class="fp"><?php echo $food[0]['food_price']; ?></span></td>
+                                <td>$<span class="fp"><?php echo $food[0]['food_price']; ?></span></td>
                                 <td><input id="item_total_input" name="item_total_input"
                                         data-foodprice="<?php echo  $food[0]['food_price']; ?>"
                                         data-i="<?php echo  $food[0]['id']; ?>" class="text-center ftq" value="1"
                                         style="width: 100px;" type="number"></td>
-                                <td class="target-td">£<span id="total-item-price<?php echo $food[0]['id']; ?>"
+                                <td class="target-td">$<span id="total-item-price<?php echo $food[0]['id']; ?>"
                                         class="itemwise-total ftp"><?php echo $food[0]['food_price']; ?></span>
                                 </td>
 
@@ -174,12 +174,12 @@ if (isset($_POST['cuppon_code'])) {
                         <thead>
                             <tr class="text-center">
                                 <th>Cart Subtotal</th>
-                                <td>£<span id="sub-total"><?php echo $totalPriceAfterSum; ?></span></td>
+                                <td>$<span id="sub-total"><?php echo $totalPriceAfterSum; ?></span></td>
 
                             </tr>
                             <tr class="text-center">
                                 <th>Discount</th>
-                                <td>£<span
+                                <td>$<span
                                         id="discount"><?php echo isset($_SESSION['food_project_cuppon_discount']) && !empty($_SESSION['food_project_cuppon_discount']) ? $_SESSION['food_project_cuppon_discount'] : 0 ?></span>
                                     <form method="post"><input name="cuppon_code" id="cuppon_code"
                                             placeholder="Enter Cuppon Code" type="text" /><button type="submit"
@@ -190,22 +190,22 @@ if (isset($_POST['cuppon_code'])) {
                             </tr>
                             <tr class="text-center">
                                 <th>Total</th>
-                                <td>£<span id="discounted_total"><?php echo $totalPriceAfterSum; ?></span></td>
+                                <td>$<span id="discounted_total"><?php echo $totalPriceAfterSum; ?></span></td>
 
                             </tr>
                             <tr class="text-center">
                                 <th>Vat</th>
-                                <td>£<span>3.20</span></td>
+                                <td>$<span>3.20</span></td>
 
                             </tr>
                             <tr class="text-center">
                                 <th>Delivery charges</th>
-                                <td>£<span>2.50</span></td>
+                                <td>$<span>2.50</span></td>
 
                             </tr>
                             <tr class="text-center">
                                 <th>Final amount</th>
-                                <td>£<span class="text-success"
+                                <td>$<span class="text-success"
                                         id="final_amount"><?php echo isset($_SESSION['food_project_cuppon_discount']) && !empty($_SESSION['food_project_cuppon_discount']) ? (ceil(($totalPriceAfterSum + 3.20 + 2.50) * 100) / 100) - $_SESSION['food_project_cuppon_discount'] :ceil(($totalPriceAfterSum + 3.20 + 2.50) * 100) / 100; ?></span>
                                 </td>
 
