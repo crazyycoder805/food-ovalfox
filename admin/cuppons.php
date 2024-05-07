@@ -150,7 +150,7 @@ if (isset($_GET['edit_product'])) {
 
                                                     <div class="form-group">
                                                         <label for="cuppon_limit" class="col-form-label">Cuppon
-                                                            code</label>
+                                                            code limit</label>
                                                         <input
                                                             value="<?php echo isset($_GET['edit_product']) ? $id[0]['cuppon_limit'] : null; ?>"
                                                             class="form-control" name="cuppon_limit" type="number"

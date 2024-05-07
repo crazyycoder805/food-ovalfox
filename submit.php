@@ -2,6 +2,7 @@
 session_start();
 require_once 'assets/includes/config.php';
 require_once 'assets/includes/pdo.php';
+require_once 'mail.php';
 
 if ($_POST['pay_with'] == "cod") {
 	$postData = $_POST;
@@ -38,7 +39,7 @@ if ($_POST['pay_with'] == "cod") {
 			}
 		}
 
-		if ($paymentSuccess) {
+		if ($paymentSuccess && sendEmail($_SESSION['food_project_email'], "Order Placed", "Your order has been placed. through (CASH ON DELIVERY)")) {
 			echo "Payment success. refreshing...";
 		} elseif ($paymentFailed) {
 			echo "Payment failed. refreshing...";
@@ -66,10 +67,6 @@ if ($_POST['pay_with'] == "cod") {
 			$transformedData[] = array_values($tempArray);
 		}
 
-		echo "<pre>";
-		print_r($transformedData);
-		echo "</pre>";
-		return;
 
 
 		\Stripe\Stripe::setVerifySslCerts(false);
@@ -77,7 +74,8 @@ if ($_POST['pay_with'] == "cod") {
 		$token=$_POST['stripeToken'];
 	
 		$data=\Stripe\Charge::create(array(
-			"amount"=>$_POST['total_final_amount'],
+			
+			"amount"=>ceil(($_POST['total_final_amount']) * 100),
 			"currency"=>"gbp",
 			"description"=>"Sweet Delightness",
 			"source"=>$token,
@@ -103,7 +101,7 @@ if ($_POST['pay_with'] == "cod") {
 			}
 		}
 
-		if ($paymentSuccess) {
+		if ($paymentSuccess && sendEmail($_SESSION['food_project_email'], "Order Placed", "Your order has been placed. through (STRIPE)")) {
 			echo "Payment success. refreshing...";
 		} elseif ($paymentFailed) {
 			echo "Payment failed. refreshing...";

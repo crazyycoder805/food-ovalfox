@@ -6,7 +6,7 @@
 if (!isset($_SESSION['food_project_user_id'])) {
     header("location:login.php");
 } 
-$total_orders_completed = $pdo->read("stripe_payments", ['status' => 'succeeded', 'user_id' => $_SESSION['food_project_user_id']]);
+$total_orders_completed = $pdo->read("stripe_payments", ['order_status' => 'completed', 'user_id' => $_SESSION['food_project_user_id']]);
 $total_wishlisted_items = $pdo->read("wishlist", ['user_id' => $_SESSION['food_project_user_id']]);
 $total_cart_items = $pdo->read("cart", ['user_id' => $_SESSION['food_project_user_id']]);
 $total_bookings = $pdo->read("bookings", ['user_id' => $_SESSION['food_project_user_id']]);
@@ -195,7 +195,7 @@ if (isset($_POST['fname'])) {
                                                     ?>
                                                     <tr>
                                                         <td style="font-size: 8px;"><?php echo $order['id']; ?></td>
-                                                        <td style="font-size: 8px;"><?php echo $order['status']; ?>
+                                                        <td style="font-size: 8px;"><?php echo $order['order_status']; ?>
                                                         </td>
                                                         <td style="font-size: 8px;">
                                                             <?php echo $food[0]['food_name']; ?></td>

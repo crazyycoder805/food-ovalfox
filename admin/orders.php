@@ -1,29 +1,44 @@
 <!DOCTYPE html>
 
 <html lang="zxx">
-<?php require_once 'assets/includes/head.php'; ?>
+<?php require_once 'assets/includes/head.php';require_once '../mail.php'; ?>
 <?php
 
 $success = "";
 $error = "";
 $id = "";
-$total_orders_completed = $pdo->read("stripe_payments", ['status' => 'succeeded']);
+$total_orders_completed = $pdo->read("stripe_payments");
 
 
-$reviews = $pdo->read("reviews");
 
-
- if (isset($_GET['delete_category'])) {
-    if ($pdo->delete("reviews", $_GET['delete_category'])) {
-        $success = "Review deleted.";
-                              header("Location:{$name}");
-
+if (isset($_GET['cb'])) {
+    $food = $pdo->read("stripe_payments", ['id' => $_GET['cb']]);
+    $user = $pdo->read("users", ['id' => $food[0]['user_id']]);
+    if ($pdo->update("stripe_payments", ['id' => $_GET['cb']], ['order_status' => 'cancel']) && sendEmail($user[0]['email'], "Order Canceld", "Your order has been canceld. Order id #{$_GET['cb']}")) {
+        $success = "Order canceld.";
+                     header("Location:orders.php");
+    } else {
+        $error = "Something went wrong.";
+    }
+} else if (isset($_GET['bb'])) {
+    $food = $pdo->read("stripe_payments", ['id' => $_GET['bb']]);
+    $user = $pdo->read("users", ['id' => $food[0]['user_id']]);
+    if ($pdo->update("stripe_payments", ['id' => $_GET['bb']], ['order_status' => 'completed']) && sendEmail($user[0]['email'], "Order Completed", "Your order has been completed. Order id #{$_GET['bb']}")) {
+        $success = "Order approved.";
+                     header("Location:orders.php");
+    } else {
+        $error = "Something went wrong.";
+    }
+}else if (isset($_GET['bd'])) {
+    $food = $pdo->read("stripe_payments", ['id' => $_GET['bd']]);
+    $user = $pdo->read("users", ['id' => $food[0]['user_id']]);
+    if ($pdo->delete("stripe_payments", $_GET['bd']) && sendEmail($user[0]['email'], "Order Removed", "Your order has been removed. Order id #{$_GET['bd']}")) {
+        $success = "Order deleted.";
+                     header("Location:orders.php");
     } else {
         $error = "Something went wrong.";
     }
 }
-
-
  
 ?>
 
@@ -99,6 +114,7 @@ $reviews = $pdo->read("reviews");
                                                 <th style="font-size: 8px;">Delivery charges</th>
                                                 <th style="font-size: 8px;">Pay with</th>
                                                 <th style="font-size: 8px;">Final Amount</th>
+                                                <th style="font-size: 8px;">Action</th>
 
                                             </tr>
                                         </thead>
@@ -111,7 +127,7 @@ $reviews = $pdo->read("reviews");
                                                     ?>
                                             <tr>
                                                 <td style="font-size: 8px;"><?php echo $order['id']; ?></td>
-                                                <td style="font-size: 8px;"><?php echo $order['status']; ?>
+                                                <td style="font-size: 8px;"><?php echo $order['order_status']; ?>
                                                 </td>
                                                 <td style="font-size: 8px;">
                                                     <?php echo $food[0]['food_name']; ?></td>
@@ -127,8 +143,20 @@ $reviews = $pdo->read("reviews");
                                                 </td>
                                                 <td style="font-size: 8px;">
                                                     <?php echo $order['final_amount']; ?></td>
-                                                
-                                                    
+                                                <td style="font-size: 10px;"><?php 
+                                                        if ($order['order_status'] == 'pending') {
+                                                        ?>
+                                                    <a href="orders.php?cb=<?php echo $order['id']; ?>">CANCEL</a>
+                                                    ||
+                                                    <a href="orders.php?bb=<?php echo $order['id']; ?>">APPROVE</a>
+                                                    ||
+                                                    <a href="orders.php?bd=<?php echo $order['id']; ?>">DELETE</a>
+                                                    <?php } else { ?>
+                                                    <a href="orders.php?bd=<?php echo $order['id']; ?>">DELETE</a>
+                                                    <?php } ?>
+
+                                                </td>
+
                                             </tr>
                                             <?php } ?>
                                         </tbody>

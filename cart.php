@@ -236,7 +236,7 @@ if (isset($_POST['cuppon_code'])) {
                                             </script>
                                             <input hidden type="text" name="pay_with" value="stripe" class="pay_with" />
                                             <input hidden type="text"
-                                                value="<?php echo ceil(($totalPriceAfterSum + 3.20 + 2.50) * 100); ?>"
+                                                value="<?php echo $totalPriceAfterSum + 3.20 + 2.50; ?>"
                                                 name="total_final_amount" class="total_final_amount">
 
                                             <input hidden type="text"
@@ -256,7 +256,7 @@ if (isset($_POST['cuppon_code'])) {
 
                                             <button type="submit" class="btn btn-primary btn-sm">Pay</button>
                                             <input hidden type="text"
-                                                value="<?php echo ceil(($totalPriceAfterSum + 3.20 + 2.50) * 100); ?>"
+                                                value="<?php echo $totalPriceAfterSum + 3.20 + 2.50; ?>"
                                                 name="total_final_amount" class="total_final_amount">
                                             <input hidden type="text" name="pay_with" value="cod" class="pay_with" />
                                             <input hidden type="text"
