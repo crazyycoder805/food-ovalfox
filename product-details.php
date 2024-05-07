@@ -183,19 +183,7 @@ if (isset($_GET['c'])) {
 
                         <!-- Post Footer Start -->
                         <div class="post-footer">
-                            <div class="footer-tag-links">
-                                <h3>Tags:</h3>
-                                <ul>
-                                    <li><a href="#"><?php echo $food_tags[0]['tag']; ?></a></li>
-                                </ul>
-                            </div>
 
-                            <div class="post-social-link">
-                                <a href="#" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
-                                <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
-                                <a href="#" class="social-link"><i class="fa-brands fa-twitter"></i></a>
-                                <a href="#" class="social-link"><i class="fa-brands fa-linkedin-in"></i></a>
-                            </div>
                         </div>
                         <!-- Post Footer End -->
 
@@ -311,12 +299,13 @@ if (isset($_GET['c'])) {
                         <h3>Price: $<?php echo $food[0]['food_price']; ?></h3>
                         <h3>Category: <?php echo $food_categories[0]['category']; ?></h3>
 
-                        <h3>Actions: <a href="product-details.php?i=<?php echo $_GET['i']; ?>&c=<?php echo $food[0]['id']; ?>" class="p-2"
-                                style="font-size: 30px;color: grey;"><i class="fa fa-cart-plus"></i></a>
+                        <h3>Actions: <a
+                                href="product-details.php?i=<?php echo $_GET['i']; ?>&c=<?php echo $food[0]['id']; ?>"
+                                class="p-2" style="font-size: 30px;color: grey;"><i class="fa fa-cart-plus"></i></a>
 
 
-                            <a href="product-details.php?i=<?php echo $_GET['i']; ?>&w=<?php echo $food[0]['id']; ?>" class="p-2"
-                                style="font-size: 30px;color: red;"><i class="fa fa-heart"></i></a>
+                            <a href="product-details.php?i=<?php echo $_GET['i']; ?>&w=<?php echo $food[0]['id']; ?>"
+                                class="p-2" style="font-size: 30px;color: red;"><i class="fa fa-heart"></i></a>
 
 
                         </h3>
@@ -349,7 +338,8 @@ if (isset($_GET['c'])) {
 
                             <div class="post-item">
                                 <div class="post-img">
-                                    <a href="#"><img src="admin/assets/food_project/food/<?php echo $spf['image']; ?>" alt=""></a>
+                                    <a href="#"><img src="admin/assets/food_project/food/<?php echo $spf['image']; ?>"
+                                            alt=""></a>
                                 </div>
                                 <div class="post-body">
                                     <div class="post-meta">
@@ -371,17 +361,7 @@ if (isset($_GET['c'])) {
                     <!-- Recent Post Section end -->
 
                     <!-- Tags Section Start -->
-                    <div class="tags-section wow fadeInUp" data-wow-delay="1.0s">
-                        <h3>Tags</h3>
-                        <ul>
 
-                            <li><a href="#"><?php echo $food_tags[0]['tag']; ?></a></li>
-
-
-
-
-                        </ul>
-                    </div>
                     <!-- Tags Section End -->
                 </div>
             </div>

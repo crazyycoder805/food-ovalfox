@@ -65,6 +65,13 @@ if ($_POST['pay_with'] == "cod") {
 		if (!empty($tempArray)) {
 			$transformedData[] = array_values($tempArray);
 		}
+
+		echo "<pre>";
+		print_r($transformedData);
+		echo "</pre>";
+		return;
+
+
 		\Stripe\Stripe::setVerifySslCerts(false);
 	
 		$token=$_POST['stripeToken'];
